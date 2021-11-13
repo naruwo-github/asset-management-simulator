@@ -1,3 +1,4 @@
+import 'package:asset_management_simulator/services/admob.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -8,12 +9,7 @@ class MyBottomNavigationBar {
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(
-          alignment: Alignment.center,
-          child: AdWidget(ad: _bottomBannerAd),
-          width: _bottomBannerAd.size.width.toDouble(),
-          height: _bottomBannerAd.size.height.toDouble(),
-        ),
+        AdMobService().getBannerAdContainer(_bottomBannerAd),
       ],
     );
   }

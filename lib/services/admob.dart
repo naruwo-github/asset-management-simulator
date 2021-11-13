@@ -1,8 +1,29 @@
+import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+enum AdType {
+  top,
+  bottom,
+}
 
 class AdMobService {
 
-  BannerAd getBannerAdById(String adId) {
+  // バナー広告のウィジェットを作成する関数
+  Container getBannerAdContainer(BannerAd bannerAd) {
+    return Container(
+      alignment: Alignment.center,
+      child: AdWidget(ad: bannerAd),
+      width: bannerAd.size.width.toDouble(),
+      height: bannerAd.size.height.toDouble(),
+    );
+  }
+
+  // バナー広告のインスタンスを作成する関数
+  BannerAd getBannerAdByType(AdType type) {
+    String adId = getTopBannerAdUnitId();
+    if (type == AdType.bottom) {
+      adId = getBottomBannerAdUnitId();
+    }
     return BannerAd(
       adUnitId: adId,
       size: AdSize.banner,

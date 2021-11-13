@@ -1,3 +1,4 @@
+import 'package:asset_management_simulator/services/admob.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -7,12 +8,7 @@ class MyBody {
     return SafeArea(
       child: Column(
         children: [
-          Container(
-            alignment: Alignment.center,
-            child: AdWidget(ad: _topBannerAd),
-            width: _topBannerAd.size.width.toDouble(),
-            height: _topBannerAd.size.height.toDouble(),
-          ),
+          AdMobService().getBannerAdContainer(_topBannerAd),
           Expanded(
             child: Center(
                 child: Column(

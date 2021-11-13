@@ -1,7 +1,16 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdMobService {
+
+  BannerAd getBannerAdById(String adId) {
+    return BannerAd(
+      adUnitId: adId,
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: const BannerAdListener(),
+    );
+  }
+
   String getTopBannerAdUnitId() {
     // TODO: 本番ではコメントアウト解除
     // if (Platform.isAndroid) {
@@ -28,8 +37,4 @@ class AdMobService {
     return 'ca-app-pub-3940256099942544/6300978111';
   }
 
-  double getBannerAdHeight(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    return (height * 0.06).toDouble();
-  }
 }

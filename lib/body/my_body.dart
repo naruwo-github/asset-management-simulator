@@ -16,8 +16,8 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
-      int _result,
-      void Function() _calculateResult,
+      int _calculatedResult,
+      void Function() _setCalculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context
       ) {
@@ -36,8 +36,8 @@ class MyBody {
                       _annualInterestRate, _setAnnualInterestRate,
                       _savingPeriod, _setSavingPeriod,
                     ),
-                    CalculateButton().getWidget(_calculateResult),
-                    ResultText().getWidget(_result, _context)
+                    CalculateButton().getWidget(_setCalculatedResult),
+                    ResultText().getWidget(_calculatedResult, _context)
                   ],
                 )
             ),

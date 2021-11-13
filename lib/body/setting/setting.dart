@@ -45,7 +45,7 @@ class Setting {
           margin: const EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[// TODO: ここに要素を追加していく
+            children: <Widget>[
               SettingElementUnit().getWidget(
                   'Monthly Saving',
                   _monthlySaving,

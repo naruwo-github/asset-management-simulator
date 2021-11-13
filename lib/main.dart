@@ -72,11 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  int _result = 0;
-  // TODO: fix
-  void _calculateResult() {
+  int _calculatedResult = 0;
+  void _setCalculatedResult() {
     setState(() {
-      _result++;
+      _calculatedResult++;
     });
   }
 
@@ -104,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _monthlySaving, _setMonthlySaving,
           _annualInterestRate, _setAnnualInterestRate,
           _savingPeriod, _setSavingPeriod,
-          _result, _calculateResult,
+          _calculatedResult, _setCalculatedResult,
           _topBannerAd,
           context
       ),

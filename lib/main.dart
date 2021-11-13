@@ -1,3 +1,4 @@
+import 'package:asset_management_simulator/body/my_body.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:asset_management_simulator/appBar/app_bar.dart';
 import 'package:asset_management_simulator/bottomNavigationBar/bottom_navigation_bar.dart';
@@ -69,34 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: MyAppBar().getWidget(widget.title),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: AdWidget(ad: _topBannerAd),
-              width: _topBannerAd.size.width.toDouble(),
-              height: _topBannerAd.size.height.toDouble(),
-            ),
-            Expanded(
-              child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        'You have pushed the button this many times:',
-                      ),
-                      Text(
-                        '$_counter',
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ],
-                  )
-              ),
-            )
-          ],
-        ),
-      ),
+      body: MyBody().getWidget(_topBannerAd, _counter, context),
       bottomNavigationBar: MyBottomNavigationBar().getWidget(_bottomBannerAd),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

@@ -23,7 +23,7 @@ class Setting {
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
           },
-          items: ['Default', 'Second', 'Special!!!']
+          items: ['Predicted Amount', 'Amount/Month', 'Needed Years']
               .map((String item) {
             return DropdownMenuItem(
                 value: item,
@@ -31,6 +31,14 @@ class Setting {
             );
           })
               .toList(),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const <Widget>[
+            Text('AAA'),
+            Text('BBB'),
+            Text('CCC'),
+          ],
         ),
       ],
     );

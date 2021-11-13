@@ -40,8 +40,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _dropdownValue = 'Default';
-  int _counter = 0;// TODO: 置き換える
+  String _dropdownValue = 'Predicted Amount';
+  int _result = 0;
   final BannerAd _topBannerAd = AdMobService().getBannerAdByType(AdType.topBanner);
   final BannerAd _bottomBannerAd = AdMobService().getBannerAdByType(AdType.bottomBanner);
 
@@ -51,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _incrementCounter() {// TODO: 置き換える
+  void _calculateResult() {
     setState(() {
-      _counter++;
+      _result++;
     });
   }
 
@@ -77,10 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyAppBar().getWidget(widget.title),
       body: MyBody().getWidget(
-          _dropdownValue,
-          _setDropdownValue,
-          _counter,
-          _incrementCounter,
+          _dropdownValue, _setDropdownValue,
+          _result, _calculateResult,
           _topBannerAd,
           context
       ),

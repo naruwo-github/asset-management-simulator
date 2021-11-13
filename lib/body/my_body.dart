@@ -9,8 +9,8 @@ class MyBody {
   SafeArea getWidget(
       String _dropdownValue,
       void Function(String) _setDropdownValue,
-      int _counter,
-      void Function() _incrementCounter,
+      int _result,
+      void Function() _calculateResult,
       BannerAd _topBannerAd,
       BuildContext _context
       ) {
@@ -24,9 +24,9 @@ class MyBody {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Setting().getWidget(_dropdownValue, _setDropdownValue),
-                    CalculateButton().getWidget(_incrementCounter),
+                    CalculateButton().getWidget(_calculateResult),
                     Text(
-                      'Result: $_counter',
+                      'Result: $_result',
                       style: Theme.of(_context).textTheme.headline4,
                     ),
                   ],

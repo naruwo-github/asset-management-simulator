@@ -1,10 +1,11 @@
+import 'package:asset_management_simulator/body/calculate_button.dart';
 import 'package:asset_management_simulator/services/admob.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MyBody {
-  SafeArea getWidget(BannerAd _topBannerAd, int _counter, BuildContext _context) {
+  SafeArea getWidget(BannerAd _topBannerAd, int _counter, void Function() _incrementCounter, BuildContext _context) {
     return SafeArea(
       child: Column(
         children: [
@@ -14,11 +15,9 @@ class MyBody {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
-                      'You have pushed the button this many times:',
-                    ),
+                    CalculateButton().getWidget(_incrementCounter),
                     Text(
-                      '$_counter',
+                      'Result: $_counter',
                       style: Theme.of(_context).textTheme.headline4,
                     ),
                   ],

@@ -67,16 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called.
-
     return Scaffold(
       appBar: MyAppBar().getWidget(widget.title),
-      body: MyBody().getWidget(_topBannerAd, _counter, context),
+      body: MyBody().getWidget(_topBannerAd, _counter, _incrementCounter, context),
       bottomNavigationBar: MyBottomNavigationBar().getWidget(_bottomBannerAd),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

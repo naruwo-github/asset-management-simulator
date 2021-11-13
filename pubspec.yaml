@@ -38,6 +38,9 @@ dependencies:
   # AdMob Package
   google_mobile_ads: ^0.13.6
 
+  # FL Chart Package
+  fl_chart: ^0.40.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

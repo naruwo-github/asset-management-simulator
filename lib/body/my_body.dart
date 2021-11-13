@@ -10,6 +10,12 @@ class MyBody {
   SafeArea getWidget(
       String _dropdownValue,
       void Function(String) _setDropdownValue,
+      int _monthlySaving,
+      void Function(int) _setMonthlySaving,
+      int _annualInterestRate,
+      void Function(int) _setAnnualInterestRate,
+      int _savingPeriod,
+      void Function(int) _setSavingPeriod,
       int _result,
       void Function() _calculateResult,
       BannerAd _topBannerAd,
@@ -24,7 +30,12 @@ class MyBody {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Setting().getWidget(_dropdownValue, _setDropdownValue),
+                    Setting().getWidget(
+                      _dropdownValue, _setDropdownValue,
+                      _monthlySaving, _setMonthlySaving,
+                      _annualInterestRate, _setAnnualInterestRate,
+                      _savingPeriod, _setSavingPeriod,
+                    ),
                     CalculateButton().getWidget(_calculateResult),
                     ResultText().getWidget(_result, _context)
                   ],

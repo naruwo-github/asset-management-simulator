@@ -40,17 +40,40 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _dropdownValue = 'Predicted Amount';
-  int _result = 0;
   final BannerAd _topBannerAd = AdMobService().getBannerAdByType(AdType.topBanner);
   final BannerAd _bottomBannerAd = AdMobService().getBannerAdByType(AdType.bottomBanner);
 
+  // State
+  String _dropdownValue = 'Predicted Amount';
   void _setDropdownValue(String value) {
     setState(() {
       _dropdownValue = value;
     });
   }
 
+  int _monthlySaving = 2;
+  void _setMonthlySaving(int value) {
+    setState(() {
+      _monthlySaving = value;
+    });
+  }
+
+  int _annualInterestRate = 3;
+  void _setAnnualInterestRate(int value) {
+    setState(() {
+      _annualInterestRate = value;
+    });
+  }
+
+  int _savingPeriod = 5;
+  void _setSavingPeriod(int value) {
+    setState(() {
+      _savingPeriod = value;
+    });
+  }
+
+  int _result = 0;
+  // TODO: fix
   void _calculateResult() {
     setState(() {
       _result++;
@@ -63,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _topBannerAd.load();
     _bottomBannerAd.load();
   }
-  
+
   @override
   void dispose() {
     super.dispose();
@@ -78,6 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: MyAppBar().getWidget(widget.title),
       body: MyBody().getWidget(
           _dropdownValue, _setDropdownValue,
+          _monthlySaving, _setMonthlySaving,
+          _annualInterestRate, _setAnnualInterestRate,
+          _savingPeriod, _setSavingPeriod,
           _result, _calculateResult,
           _topBannerAd,
           context

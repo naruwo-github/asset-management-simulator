@@ -73,6 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
     _topBannerAd.load();
     _bottomBannerAd.load();
   }
+  
+  @override
+  void dispose() {
+    super.dispose();
+    _topBannerAd.dispose();
+    _bottomBannerAd.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 enum AdType {
-  top,
-  bottom,
+  topBanner,
+  bottomBanner,
 }
 
 class AdMobService {
@@ -21,7 +21,7 @@ class AdMobService {
   // バナー広告のインスタンスを作成する関数
   BannerAd getBannerAdByType(AdType type) {
     String adId = getTopBannerAdUnitId();
-    if (type == AdType.bottom) {
+    if (type == AdType.bottomBanner) {
       adId = getBottomBannerAdUnitId();
     }
     return BannerAd(

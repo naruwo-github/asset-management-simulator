@@ -41,8 +41,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  final BannerAd _topBannerAd = AdMobService().getBannerAdByType(AdType.top);
-  final BannerAd _bottomBannerAd = AdMobService().getBannerAdByType(AdType.bottom);
+  final BannerAd _topBannerAd = AdMobService().getBannerAdByType(AdType.topBanner);
+  final BannerAd _bottomBannerAd = AdMobService().getBannerAdByType(AdType.bottomBanner);
 
   void _incrementCounter() {
     setState(() {

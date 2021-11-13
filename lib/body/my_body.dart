@@ -1,5 +1,6 @@
-import 'package:asset_management_simulator/body/calculate_button.dart';
-import 'package:asset_management_simulator/body/setting.dart';
+import 'package:asset_management_simulator/body/calculateButton/calculate_button.dart';
+import 'package:asset_management_simulator/body/resultText/result_text.dart';
+import 'package:asset_management_simulator/body/setting/setting.dart';
 import 'package:asset_management_simulator/services/admob.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +26,7 @@ class MyBody {
                   children: <Widget>[
                     Setting().getWidget(_dropdownValue, _setDropdownValue),
                     CalculateButton().getWidget(_calculateResult),
-                    Text(
-                      'Result: $_result',
-                      style: Theme.of(_context).textTheme.headline4,
-                    ),
+                    ResultText().getWidget(_result, _context)
                   ],
                 )
             ),

@@ -23,9 +23,9 @@ class MyBody {
       BuildContext _context
       ) {
 
-    const Color dark = Color(0xff3b8c75);
-    const Color normal = Color(0xff64caad);
-    const Color light = Color(0xff73e8c9);
+    const Color dark = Colors.teal;
+    const Color normal = Colors.orangeAccent;
+    const Color light = Colors.white70;
     List<BarChartGroupData> getData() {
       return [
         BarChartGroupData(
@@ -251,7 +251,7 @@ class MyBody {
                                 bottomTitles: SideTitles(
                                   showTitles: true,
                                   getTextStyles: (context, value) =>
-                                  const TextStyle(color: Color(0xff939393), fontSize: 10),
+                                  const TextStyle(color: Colors.grey, fontSize: 10),
                                   margin: 10,
                                   getTitles: (double value) {
                                     switch (value.toInt()) {
@@ -274,9 +274,7 @@ class MyBody {
                                   showTitles: true,
                                   reservedSize: 40,
                                   getTextStyles: (context, value) => const TextStyle(
-                                      color: Color(
-                                        0xff939393,
-                                      ),
+                                      color: Colors.grey,
                                       fontSize: 10
                                   ),
                                   margin: 0,
@@ -288,7 +286,7 @@ class MyBody {
                                 show: true,
                                 checkToShowHorizontalLine: (value) => value % 10 == 0,
                                 getDrawingHorizontalLine: (value) => FlLine(
-                                  color: const Color(0xffe7e8ec),
+                                  color: Colors.black12,
                                   strokeWidth: 1,
                                 ),
                               ),

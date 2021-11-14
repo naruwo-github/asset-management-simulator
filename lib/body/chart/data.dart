@@ -5,15 +5,24 @@ class ChartData {
   static const Color saved = Colors.amber;
   static const Color increased = Colors.cyan;
 
-  List<BarChartGroupData> getData() {
-    double yearSaving = 20000 * 12;
-    double rate = 0.03;
-    int period = 5;
+  List<BarChartGroupData> getData(
+    int _monthlySaving,
+    int _annualInterestRate,
+    int _savingPeriod,
+    void Function(int) _setCalculated,
+  ) {
+    // double yearSaving = _monthlySaving * 10000 * 12; // TODO: If using ¥, multiply 10000.
+    double yearSaving = _monthlySaving * 100 * 12;
+    double rate = _annualInterestRate / 100;
+    int period = _savingPeriod;
 
+    // TODO: Maybe, this loop isn't necessary...
     List<double> yearSavings = [yearSaving];
     for (int i = 1; i < period; i++) {
       yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
     }
+    _setCalculated((yearSavings.last * (1 + rate)).toInt());
+
     List<BarChartGroupData> dataList = [];
     for (int i = 0; i < period; i++) {
       dataList.add(

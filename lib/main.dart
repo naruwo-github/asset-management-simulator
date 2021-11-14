@@ -80,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _calculatedResult = 0;
 
-  void _setCalculatedResult() {
+  void _setCalculatedResult(int value) {
     setState(() {
-      _calculatedResult++;
+      _calculatedResult = value;
     });
   }
 

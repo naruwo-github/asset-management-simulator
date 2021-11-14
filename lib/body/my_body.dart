@@ -18,7 +18,7 @@ class MyBody {
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
       int _calculatedResult,
-      void Function() _setCalculatedResult,
+      void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
     return SafeArea(
@@ -40,9 +40,13 @@ class MyBody {
                     _savingPeriod,
                     _setSavingPeriod,
                   ),
-                  CalculateButton().getWidget(_setCalculatedResult),
                   ResultText().getWidget(_calculatedResult, _context),
-                  Chart().getWidget(),
+                  Chart().getWidget(
+                    _monthlySaving,
+                    _annualInterestRate,
+                    _savingPeriod,
+                    _setCalculatedResult,
+                  ),
                 ],
               ),
             ),

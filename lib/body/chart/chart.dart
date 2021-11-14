@@ -3,7 +3,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class Chart {
-  AspectRatio getWidget() {
+  AspectRatio getWidget(
+    int _monthlySaving,
+    int _annualInterestRate,
+    int _savingPeriod,
+    void Function(int) _setCalculated,
+  ) {
     return AspectRatio(
       aspectRatio: 1.66,
       child: Card(
@@ -34,20 +39,7 @@ class Chart {
                   rotateAngle: 90,
                   margin: 10,
                   getTitles: (double value) {
-                    switch (value.toInt()) {
-                      case 0:
-                        return '1 year';
-                      case 1:
-                        return '2 year';
-                      case 2:
-                        return '3 year';
-                      case 3:
-                        return '4 year';
-                      case 4:
-                        return '5 year';
-                      default:
-                        return '';
-                    }
+                    return '${value.toInt()} year';
                   },
                 ),
                 leftTitles: SideTitles(
@@ -72,7 +64,12 @@ class Chart {
                 show: false,
               ),
               groupsSpace: 4,
-              barGroups: ChartData().getData(),
+              barGroups: ChartData().getData(
+                _monthlySaving,
+                _annualInterestRate,
+                _savingPeriod,
+                _setCalculated,
+              ),
             ),
           ),
         ),

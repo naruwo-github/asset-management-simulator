@@ -3,7 +3,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class Chart {
-  AspectRatio getWidget() {
+  AspectRatio getWidget(
+    int _monthlySaving,
+    int _annualInterestRate,
+    int _savingPeriod,
+    void Function(int) _setCalculated,
+  ) {
     return AspectRatio(
       aspectRatio: 1.66,
       child: Card(
@@ -18,28 +23,23 @@ class Chart {
               barTouchData: BarTouchData(
                 enabled: false,
               ),
+              axisTitleData: FlAxisTitleData(
+                leftTitle: AxisTitle(
+                  showTitle: true,
+                  titleText: 'Total',
+                  textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                ),
+              ),
               titlesData: FlTitlesData(
                 show: true,
                 bottomTitles: SideTitles(
                   showTitles: true,
                   getTextStyles: (context, value) =>
                       const TextStyle(color: Colors.grey, fontSize: 10),
+                  rotateAngle: 90,
                   margin: 10,
                   getTitles: (double value) {
-                    switch (value.toInt()) {
-                      case 0:
-                        return 'Apr';
-                      case 1:
-                        return 'May';
-                      case 2:
-                        return 'Jun';
-                      case 3:
-                        return 'Jul';
-                      case 4:
-                        return 'Aug';
-                      default:
-                        return '';
-                    }
+                    return '${value.toInt()} year';
                   },
                 ),
                 leftTitles: SideTitles(
@@ -64,7 +64,12 @@ class Chart {
                 show: false,
               ),
               groupsSpace: 4,
-              barGroups: ChartData().getData(),
+              barGroups: ChartData().getData(
+                _monthlySaving,
+                _annualInterestRate,
+                _savingPeriod,
+                _setCalculated,
+              ),
             ),
           ),
         ),

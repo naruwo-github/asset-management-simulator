@@ -43,7 +43,7 @@ class Setting {
                 'Monthly Saving',
                 _monthlySaving,
                 _setMonthlySaving,
-                '\$',
+                '×100\$',
               ),
               SettingElementUnit().getWidget(
                 'Annual Interest Rate',
@@ -52,7 +52,10 @@ class Setting {
                 '%',
               ),
               SettingElementUnit().getWidget(
-                  'Saving Period', _savingPeriod, _setSavingPeriod, 'Y'),
+                  'Saving Period',
+                  _savingPeriod,
+                  _setSavingPeriod,
+                  'Y'),
             ],
           ),
         ),

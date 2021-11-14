@@ -7,7 +7,6 @@ enum AdType {
 }
 
 class AdMobService {
-
   // バナー広告のウィジェットを作成する関数
   Container getBannerAdContainer(BannerAd bannerAd) {
     return Container(
@@ -57,5 +56,4 @@ class AdMobService {
     // テスト用バナー広告ID
     return 'ca-app-pub-3940256099942544/6300978111';
   }
-
 }

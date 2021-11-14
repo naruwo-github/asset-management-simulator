@@ -1,4 +1,5 @@
 import 'package:asset_management_simulator/body/calculateButton/calculate_button.dart';
+import 'package:asset_management_simulator/body/chart/chart.dart';
 import 'package:asset_management_simulator/body/resultText/result_text.dart';
 import 'package:asset_management_simulator/body/setting/setting.dart';
 import 'package:asset_management_simulator/services/admob.dart';
@@ -19,29 +20,33 @@ class MyBody {
       int _calculatedResult,
       void Function() _setCalculatedResult,
       BannerAd _topBannerAd,
-      BuildContext _context
-      ) {
+      BuildContext _context) {
     return SafeArea(
       child: Column(
         children: [
           AdMobService().getBannerAdContainer(_topBannerAd),
           Expanded(
             child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Setting().getWidget(
-                      _dropdownValue, _setDropdownValue,
-                      _monthlySaving, _setMonthlySaving,
-                      _annualInterestRate, _setAnnualInterestRate,
-                      _savingPeriod, _setSavingPeriod,
-                    ),
-                    CalculateButton().getWidget(_setCalculatedResult),
-                    ResultText().getWidget(_calculatedResult, _context)
-                  ],
-                )
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Setting().getWidget(
+                    _dropdownValue,
+                    _setDropdownValue,
+                    _monthlySaving,
+                    _setMonthlySaving,
+                    _annualInterestRate,
+                    _setAnnualInterestRate,
+                    _savingPeriod,
+                    _setSavingPeriod,
+                  ),
+                  CalculateButton().getWidget(_setCalculatedResult),
+                  ResultText().getWidget(_calculatedResult, _context),
+                  Chart().getWidget(),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

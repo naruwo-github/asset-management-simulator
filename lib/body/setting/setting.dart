@@ -1,4 +1,5 @@
 import 'package:asset_management_simulator/body/setting/setting_element_unit.dart';
+import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class Setting {
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
           },
-          items: ['Predicted Amount', 'Amount/Month', 'Needed Years']
+          items: StringManager().dropdownValues
               .map((String item) {
             return DropdownMenuItem(value: item, child: Text(item));
           }).toList(),

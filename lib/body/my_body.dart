@@ -1,4 +1,3 @@
-import 'package:asset_management_simulator/body/calculateButton/calculate_button.dart';
 import 'package:asset_management_simulator/body/chart/chart.dart';
 import 'package:asset_management_simulator/body/resultText/result_text.dart';
 import 'package:asset_management_simulator/body/setting/setting.dart';

@@ -47,19 +47,22 @@ class Setting {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SettingElementUnit().getWidget(
-                  'Monthly Saving',
+                'Monthly Saving',
                   _monthlySaving,
                   _setMonthlySaving,
+                '\$',
               ),
               SettingElementUnit().getWidget(
                 'Annual Interest Rate',
                 _annualInterestRate,
                 _setAnnualInterestRate,
+                '%',
               ),
               SettingElementUnit().getWidget(
                 'Saving Period',
                 _savingPeriod,
                 _setSavingPeriod,
+                'Y'
               ),
             ],
           ),

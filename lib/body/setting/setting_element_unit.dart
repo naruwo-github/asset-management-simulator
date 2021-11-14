@@ -6,6 +6,7 @@ class SettingElementUnit {
       String title,
       int defaultValue,
       void Function(int) setIntValue,
+      String unit,
       ) {
     return Row(
       children: <Widget>[
@@ -32,6 +33,7 @@ class SettingElementUnit {
           })
               .toList(),
         ),
+        Text(unit),
       ],
     );
   }

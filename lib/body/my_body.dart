@@ -20,28 +20,31 @@ class MyBody {
       int _calculatedResult,
       void Function() _setCalculatedResult,
       BannerAd _topBannerAd,
-      BuildContext _context
-      ) {
+      BuildContext _context) {
     return SafeArea(
       child: Column(
         children: [
           AdMobService().getBannerAdContainer(_topBannerAd),
           Expanded(
             child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Setting().getWidget(
-                      _dropdownValue, _setDropdownValue,
-                      _monthlySaving, _setMonthlySaving,
-                      _annualInterestRate, _setAnnualInterestRate,
-                      _savingPeriod, _setSavingPeriod,
-                    ),
-                    CalculateButton().getWidget(_setCalculatedResult),
-                    ResultText().getWidget(_calculatedResult, _context),
-                    Chart().getWidget(),
-                  ],
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Setting().getWidget(
+                    _dropdownValue,
+                    _setDropdownValue,
+                    _monthlySaving,
+                    _setMonthlySaving,
+                    _annualInterestRate,
+                    _setAnnualInterestRate,
+                    _savingPeriod,
+                    _setSavingPeriod,
+                  ),
+                  CalculateButton().getWidget(_setCalculatedResult),
+                  ResultText().getWidget(_calculatedResult, _context),
+                  Chart().getWidget(),
+                ],
+              ),
             ),
           ),
         ],

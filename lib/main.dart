@@ -40,11 +40,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final BannerAd _topBannerAd = AdMobService().getBannerAdByType(AdType.topBanner);
-  final BannerAd _bottomBannerAd = AdMobService().getBannerAdByType(AdType.bottomBanner);
+  final BannerAd _topBannerAd =
+      AdMobService().getBannerAdByType(AdType.topBanner);
+  final BannerAd _bottomBannerAd =
+      AdMobService().getBannerAdByType(AdType.bottomBanner);
 
   // State
   String _dropdownValue = 'Predicted Amount';
+
   void _setDropdownValue(String value) {
     setState(() {
       _dropdownValue = value;
@@ -52,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _monthlySaving = 2;
+
   void _setMonthlySaving(int value) {
     setState(() {
       _monthlySaving = value;
@@ -59,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _annualInterestRate = 3;
+
   void _setAnnualInterestRate(int value) {
     setState(() {
       _annualInterestRate = value;
@@ -66,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _savingPeriod = 5;
+
   void _setSavingPeriod(int value) {
     setState(() {
       _savingPeriod = value;
@@ -73,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _calculatedResult = 0;
+
   void _setCalculatedResult() {
     setState(() {
       _calculatedResult++;
@@ -99,14 +106,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyAppBar().getWidget(widget.title),
       body: MyBody().getWidget(
-          _dropdownValue, _setDropdownValue,
-          _monthlySaving, _setMonthlySaving,
-          _annualInterestRate, _setAnnualInterestRate,
-          _savingPeriod, _setSavingPeriod,
-          _calculatedResult, _setCalculatedResult,
+          _dropdownValue,
+          _setDropdownValue,
+          _monthlySaving,
+          _setMonthlySaving,
+          _annualInterestRate,
+          _setAnnualInterestRate,
+          _savingPeriod,
+          _setSavingPeriod,
+          _calculatedResult,
+          _setCalculatedResult,
           _topBannerAd,
-          context
-      ),
+          context),
       bottomNavigationBar: MyBottomNavigationBar().getWidget(_bottomBannerAd),
     );
   }

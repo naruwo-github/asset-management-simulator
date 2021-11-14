@@ -3,7 +3,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class Chart {
-
   AspectRatio getWidget() {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -24,7 +23,7 @@ class Chart {
                 bottomTitles: SideTitles(
                   showTitles: true,
                   getTextStyles: (context, value) =>
-                  const TextStyle(color: Colors.grey, fontSize: 10),
+                      const TextStyle(color: Colors.grey, fontSize: 10),
                   margin: 10,
                   getTitles: (double value) {
                     switch (value.toInt()) {
@@ -46,10 +45,8 @@ class Chart {
                 leftTitles: SideTitles(
                   showTitles: true,
                   reservedSize: 40,
-                  getTextStyles: (context, value) => const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 10
-                  ),
+                  getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.grey, fontSize: 10),
                   margin: 0,
                 ),
                 topTitles: SideTitles(showTitles: false),
@@ -74,5 +71,4 @@ class Chart {
       ),
     );
   }
-
 }

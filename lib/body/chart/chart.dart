@@ -18,25 +18,33 @@ class Chart {
               barTouchData: BarTouchData(
                 enabled: false,
               ),
+              axisTitleData: FlAxisTitleData(
+                leftTitle: AxisTitle(
+                  showTitle: true,
+                  titleText: 'Total',
+                  textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                ),
+              ),
               titlesData: FlTitlesData(
                 show: true,
                 bottomTitles: SideTitles(
                   showTitles: true,
                   getTextStyles: (context, value) =>
                       const TextStyle(color: Colors.grey, fontSize: 10),
+                  rotateAngle: 90,
                   margin: 10,
                   getTitles: (double value) {
                     switch (value.toInt()) {
                       case 0:
-                        return 'Apr';
+                        return '1 year';
                       case 1:
-                        return 'May';
+                        return '2 year';
                       case 2:
-                        return 'Jun';
+                        return '3 year';
                       case 3:
-                        return 'Jul';
+                        return '4 year';
                       case 4:
-                        return 'Aug';
+                        return '5 year';
                       default:
                         return '';
                     }

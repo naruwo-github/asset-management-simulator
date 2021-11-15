@@ -19,4 +19,21 @@ class StringManager {
 
   // chart
   String barChartLeftAxisTitle = '合計金額';
+
+  // 金額を3桁ごとに,で区切る
+  String separateByThreeDigits(String text) {
+    if (text.length < 3) {
+      return text;
+    }
+    String rtnText = '';
+    for (int i = 0; i < text.length; i++) {
+      if (i != 0 && i % 3 == 0) {
+        rtnText += ',';
+      }
+      // 後ろから入れていく
+      rtnText += text[text.length - 1 - i];
+    }
+    // 後ろから入れたので、逆にする
+    return String.fromCharCodes(rtnText.runes.toList().reversed);
+  }
 }

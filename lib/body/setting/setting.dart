@@ -28,8 +28,7 @@ class Setting {
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
           },
-          items: StringManager().dropdownValues
-              .map((String item) {
+          items: StringManager().dropdownValues.map((String item) {
             return DropdownMenuItem(value: item, child: Text(item));
           }).toList(),
         ),
@@ -41,22 +40,22 @@ class Setting {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SettingElementUnit().getWidget(
-                'Monthly Saving',
+                StringManager().monthlySaving,
                 _monthlySaving,
                 _setMonthlySaving,
-                '×100\$',
+                StringManager().monthlySavingUnit,
               ),
               SettingElementUnit().getWidget(
-                'Annual Interest Rate',
+                StringManager().annualInterestRate,
                 _annualInterestRate,
                 _setAnnualInterestRate,
-                '%',
+                StringManager().rate,
               ),
               SettingElementUnit().getWidget(
-                  'Saving Period',
+                  StringManager().savingPeriod,
                   _savingPeriod,
                   _setSavingPeriod,
-                  'Y'),
+                  StringManager().year),
             ],
           ),
         ),

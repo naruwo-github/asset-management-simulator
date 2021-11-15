@@ -11,8 +11,7 @@ class ChartData {
     int _savingPeriod,
     void Function(int) _setCalculated,
   ) {
-    // double yearSaving = _monthlySaving * 10000 * 12; // TODO: If using ¥, multiply 10000.
-    double yearSaving = _monthlySaving * 100 * 12;
+    double yearSaving = _monthlySaving * 10000 * 12;
     double rate = _annualInterestRate / 100;
     int period = _savingPeriod;
 

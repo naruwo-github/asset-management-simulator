@@ -41,7 +41,7 @@ class Chart {
                   margin: 10,
                   getTitles: (double value) {
                     // Add 1 because of zero index.
-                    return '${value.toInt() + 1} ${StringManager().barChartBottomAxisTitle}';
+                    return '${value.toInt() + 1} ${StringManager().year}';
                   },
                 ),
                 leftTitles: SideTitles(

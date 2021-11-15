@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ResultText {
   Text getWidget(int _result, BuildContext _context) {
     return Text(
-      '${StringManager().resultTextPrefix}: $_result ${StringManager().resultTextUnit}',
+      '${StringManager().resultTextPrefix}: $_result ${StringManager().currency}',
       style: Theme.of(_context).textTheme.headline4,
     );
   }

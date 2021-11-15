@@ -55,7 +55,8 @@ class Setting {
                   StringManager().savingPeriod,
                   _savingPeriod,
                   _setSavingPeriod,
-                  StringManager().year),
+                  StringManager().year
+              ),
             ],
           ),
         ),

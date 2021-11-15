@@ -8,8 +8,7 @@ class StringManager {
   String monthlySavingUnit = '万円';
 
   // setting
-  // List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間']; // TODO: aaa
-  List<String> dropdownValues = ['最終積立金額'];
+  List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
   String monthlySaving = '毎月の積立金額';
   String annualInterestRate = '利回り（年率）';
   String savingPeriod = '積立期間';

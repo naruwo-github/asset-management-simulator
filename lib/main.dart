@@ -49,13 +49,19 @@ class _MyHomePageState extends State<MyHomePage> {
   // *** State ***
   String _dropdownValue = StringManager().dropdownValues.first;
 
+  // *** 金額の単位：万 ***
+  int _monthlySaving = 2; // 毎月の積立金額
+  int _annualInterestRate = 3; // 利回り（年率）
+  int _savingPeriod = 5; // 積立期間
+  int _targetAmount = 1000; // 目標金額
+  int _calculatedResult = 0; // 計算結果
+
+  // *** setState ***
   void _setDropdownValue(String value) {
     setState(() {
       _dropdownValue = value;
     });
   }
-
-  int _monthlySaving = 2;
 
   void _setMonthlySaving(int value) {
     setState(() {
@@ -63,15 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  int _annualInterestRate = 3;
-
   void _setAnnualInterestRate(int value) {
     setState(() {
       _annualInterestRate = value;
     });
   }
-
-  int _savingPeriod = 5;
 
   void _setSavingPeriod(int value) {
     setState(() {
@@ -79,14 +81,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  int _calculatedResult = 0;
+  void _setTargetAmount(int value) {
+    setState(() {
+      _targetAmount = value;
+    });
+  }
 
   void _setCalculatedResult(int value) {
     setState(() {
       _calculatedResult = value;
     });
   }
-  // *** State ***
 
   @override
   void initState() {
@@ -116,6 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
           _setAnnualInterestRate,
           _savingPeriod,
           _setSavingPeriod,
+          _targetAmount,
+          _setTargetAmount,
           _calculatedResult,
           _setCalculatedResult,
           _topBannerAd,

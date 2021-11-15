@@ -17,6 +17,8 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
+      int _targetAmount,// TODO: not using
+      void Function(int) _setTargetAmount,// TODO: not using
       int _calculatedResult,
       void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,

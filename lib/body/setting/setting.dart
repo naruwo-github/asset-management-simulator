@@ -1,4 +1,5 @@
 import 'package:asset_management_simulator/body/setting/setting_element_unit.dart';
+import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +28,7 @@ class Setting {
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
           },
-          items: ['Predicted Amount', 'Amount/Month', 'Needed Years']
-              .map((String item) {
+          items: StringManager().dropdownValues.map((String item) {
             return DropdownMenuItem(value: item, child: Text(item));
           }).toList(),
         ),
@@ -40,22 +40,23 @@ class Setting {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SettingElementUnit().getWidget(
-                'Monthly Saving',
+                StringManager().monthlySaving,
                 _monthlySaving,
                 _setMonthlySaving,
-                '×100\$',
+                StringManager().monthlySavingUnit,
               ),
               SettingElementUnit().getWidget(
-                'Annual Interest Rate',
+                StringManager().annualInterestRate,
                 _annualInterestRate,
                 _setAnnualInterestRate,
-                '%',
+                StringManager().rate,
               ),
               SettingElementUnit().getWidget(
-                  'Saving Period',
+                  StringManager().savingPeriod,
                   _savingPeriod,
                   _setSavingPeriod,
-                  'Y'),
+                  StringManager().year
+              ),
             ],
           ),
         ),

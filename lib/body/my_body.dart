@@ -1,4 +1,3 @@
-import 'package:asset_management_simulator/body/calculateButton/calculate_button.dart';
 import 'package:asset_management_simulator/body/chart/chart.dart';
 import 'package:asset_management_simulator/body/resultText/result_text.dart';
 import 'package:asset_management_simulator/body/setting/setting.dart';
@@ -30,6 +29,12 @@ class MyBody {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Chart().getWidget(
+                    _monthlySaving,
+                    _annualInterestRate,
+                    _savingPeriod,
+                    _setCalculatedResult,
+                  ),
                   Setting().getWidget(
                     _dropdownValue,
                     _setDropdownValue,
@@ -41,12 +46,6 @@ class MyBody {
                     _setSavingPeriod,
                   ),
                   ResultText().getWidget(_calculatedResult, _context),
-                  Chart().getWidget(
-                    _monthlySaving,
-                    _annualInterestRate,
-                    _savingPeriod,
-                    _setCalculatedResult,
-                  ),
                 ],
               ),
             ),

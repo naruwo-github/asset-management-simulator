@@ -1,4 +1,5 @@
 import 'package:asset_management_simulator/body/chart/data.dart';
+import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class Chart {
               axisTitleData: FlAxisTitleData(
                 leftTitle: AxisTitle(
                   showTitle: true,
-                  titleText: 'Total',
+                  titleText: StringManager().barChartLeftAxisTitle,
                   textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                 ),
               ),
@@ -39,7 +40,8 @@ class Chart {
                   rotateAngle: 90,
                   margin: 10,
                   getTitles: (double value) {
-                    return '${value.toInt()} year';
+                    // Add 1 because of zero index.
+                    return '${value.toInt() + 1} ${StringManager().year}';
                   },
                 ),
                 leftTitles: SideTitles(

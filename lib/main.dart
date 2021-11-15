@@ -1,4 +1,5 @@
 import 'package:asset_management_simulator/body/my_body.dart';
+import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:asset_management_simulator/appBar/app_bar.dart';
 import 'package:asset_management_simulator/bottomNavigationBar/bottom_navigation_bar.dart';
@@ -18,11 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Asset Management Simulator',
+      title: StringManager().appTitle,
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const MyHomePage(title: 'Asset Management Simulator'),
+      home: MyHomePage(title: StringManager().appTitle),
     );
   }
 }
@@ -45,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final BannerAd _bottomBannerAd =
       AdMobService().getBannerAdByType(AdType.bottomBanner);
 
-  // State
-  String _dropdownValue = 'Predicted Amount';
+  // *** State ***
+  String _dropdownValue = StringManager().dropdownValues.first;
 
   void _setDropdownValue(String value) {
     setState(() {
@@ -85,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _calculatedResult = value;
     });
   }
+  // *** State ***
 
   @override
   void initState() {

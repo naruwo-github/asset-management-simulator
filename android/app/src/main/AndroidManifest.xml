@@ -2,7 +2,7 @@
     package="com.example.asset_management_simulator">
    <application
         android:label="asset_management_simulator"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

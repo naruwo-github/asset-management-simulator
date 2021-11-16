@@ -17,8 +17,8 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
-      int _targetAmount,// TODO: not using
-      void Function(int) _setTargetAmount,// TODO: not using
+      int _targetAmount, // TODO: not using
+      void Function(int) _setTargetAmount, // TODO: not using
       int _calculatedResult,
       void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
@@ -48,7 +48,10 @@ class MyBody {
                     _savingPeriod,
                     _setSavingPeriod,
                   ),
-                  ResultText().getWidget(_calculatedResult, _context),
+                  ResultText().getWidget(
+                    _calculatedResult,
+                    _context,
+                  ),
                   OutlinedButton(
                     onPressed: () {
                       showDialog(

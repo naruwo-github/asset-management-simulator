@@ -20,7 +20,6 @@ class MyBody {
       int _targetAmount, // TODO: not using
       void Function(int) _setTargetAmount, // TODO: not using
       int _calculatedResult,
-      void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
     double yearSaving = _monthlySaving * 10000 * 12;
@@ -29,7 +28,6 @@ class MyBody {
     for (int i = 1; i < _savingPeriod; i++) {
       yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
     }
-    _setCalculatedResult((yearSavings.last * (1 + rate)).toInt());
     return SafeArea(
       child: Column(
         children: [

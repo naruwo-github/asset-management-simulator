@@ -66,18 +66,21 @@ class _MyHomePageState extends State<MyHomePage> {
   void _setMonthlySaving(int value) {
     setState(() {
       _monthlySaving = value;
+      calculateResult();
     });
   }
 
   void _setAnnualInterestRate(int value) {
     setState(() {
       _annualInterestRate = value;
+      calculateResult();
     });
   }
 
   void _setSavingPeriod(int value) {
     setState(() {
       _savingPeriod = value;
+      calculateResult();
     });
   }
 
@@ -87,10 +90,23 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _setCalculatedResult(int value) {
-    setState(() {
-      _calculatedResult = value;
-    });
+  void calculateResult() {
+    // Should be called in setState().
+    if (_dropdownValue == StringManager.dropdownValues.first) {
+      // 積立金額/月、利回り、積立期間から最終積立金額を算出
+      double resultAmount = 0;
+      for (int i = 0; i < _savingPeriod; i++) {
+        resultAmount = (resultAmount + (_monthlySaving * 10000 * 12)) *
+            (1 + _annualInterestRate / 100);
+      }
+      _calculatedResult = resultAmount.toInt();
+    }
+    if (_dropdownValue == StringManager.dropdownValues[1]) {
+      // TODO: 積立期間、利回り、目標金額から積立金額/月を算出
+    }
+    if (_dropdownValue == StringManager.dropdownValues.last) {
+      // TODO: 積立金額/月、利回り、目標金額から積立期間を算出
+    }
   }
 
   @override
@@ -98,6 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _topBannerAd.load();
     _bottomBannerAd.load();
+    calculateResult();
   }
 
   @override
@@ -124,7 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
           _targetAmount,
           _setTargetAmount,
           _calculatedResult,
-          _setCalculatedResult,
           _topBannerAd,
           context),
       bottomNavigationBar: MyBottomNavigationBar.getWidget(_bottomBannerAd),

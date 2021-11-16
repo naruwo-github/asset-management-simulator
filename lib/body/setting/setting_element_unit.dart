@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingElementUnit {
-  Row getWidget(
+  static Row getWidget(
     String title,
     int defaultValue,
     void Function(int) setIntValue,

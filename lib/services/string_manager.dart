@@ -1,23 +1,23 @@
 class StringManager {
-  String appTitle = '資産運用シミュレータ';
+  static String appTitle = '資産運用シミュレータ';
 
   // unit
-  String year = '年';
-  String currency = '円';
-  String rate = '%';
-  String monthlySavingUnit = '万円';
+  static String year = '年';
+  static String currency = '円';
+  static String rate = '%';
+  static String monthlySavingUnit = '万円';
 
   // setting
-  List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
-  String monthlySaving = '毎月の積立金額';
-  String annualInterestRate = '利回り（年率）';
-  String savingPeriod = '積立期間';
-  String targetAmount = '目標金額';
+  static List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
+  static String monthlySaving = '毎月の積立金額';
+  static String annualInterestRate = '利回り（年率）';
+  static String savingPeriod = '積立期間';
+  static String targetAmount = '目標金額';
 
   // result
-  String resultTextPrefix = '推定額';
-  String disclaimerTitle = '＊免責事項';
-  String disclaimerContent = '【免責事項】\n'
+  static String resultTextPrefix = '推定額';
+  static String disclaimerTitle = '＊免責事項';
+  static String disclaimerContent = '【免責事項】\n'
       '・この結果は概算値です。手数料や税金を考慮しておらず、実際の金額と異なる場合があります。\n'
       '・本シミュレーションは、将来の運用成果を保証するものではありません。\n'
       '・本シミュレーションは、特定の金融商品の取引を推奨し、勧誘するものではありません。\n'
@@ -26,10 +26,10 @@ class StringManager {
       '・本シミュレーション及び掲載された情報を利用することで生じるいかなる損害（直接的、間接的を問わず）についても、当方は一切の責任を負うものではありません。実際の資産運用や投資判断に当たっては、必ずご自身の責任において最終的に判断してください。';
 
   // chart
-  String barChartLeftAxisTitle = '合計金額';
+  static String barChartLeftAxisTitle = '合計金額';
 
   // 金額を3桁ごとに,で区切る
-  String separateByThreeDigits(String text) {
+  static String separateByThreeDigits(String text) {
     if (text.length < 3) {
       return text;
     }

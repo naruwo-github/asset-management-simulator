@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Setting {
-  Row getWidget(
+  static Row getWidget(
     String _dropdownValue,
     void Function(String) _setDropdownValue,
     int _monthlySaving,
@@ -28,7 +28,7 @@ class Setting {
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
           },
-          items: StringManager().dropdownValues.map((String item) {
+          items: StringManager.dropdownValues.map((String item) {
             return DropdownMenuItem(value: item, child: Text(item));
           }).toList(),
         ),
@@ -39,24 +39,20 @@ class Setting {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SettingElementUnit().getWidget(
-                StringManager().monthlySaving,
+              SettingElementUnit.getWidget(
+                StringManager.monthlySaving,
                 _monthlySaving,
                 _setMonthlySaving,
-                StringManager().monthlySavingUnit,
+                StringManager.monthlySavingUnit,
               ),
-              SettingElementUnit().getWidget(
-                StringManager().annualInterestRate,
+              SettingElementUnit.getWidget(
+                StringManager.annualInterestRate,
                 _annualInterestRate,
                 _setAnnualInterestRate,
-                StringManager().rate,
+                StringManager.rate,
               ),
-              SettingElementUnit().getWidget(
-                  StringManager().savingPeriod,
-                  _savingPeriod,
-                  _setSavingPeriod,
-                  StringManager().year
-              ),
+              SettingElementUnit.getWidget(StringManager.savingPeriod,
+                  _savingPeriod, _setSavingPeriod, StringManager.year),
             ],
           ),
         ),

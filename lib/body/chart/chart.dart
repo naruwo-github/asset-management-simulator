@@ -4,11 +4,10 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class Chart {
-  AspectRatio getWidget(
-    int _monthlySaving,
-    int _annualInterestRate,
-    int _savingPeriod,
-    void Function(int) _setCalculated,
+  static AspectRatio getWidget(
+    int savingPeriod,
+    double rate,
+    List<double> yearSavings,
   ) {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -27,7 +26,7 @@ class Chart {
               axisTitleData: FlAxisTitleData(
                 leftTitle: AxisTitle(
                   showTitle: true,
-                  titleText: StringManager().barChartLeftAxisTitle,
+                  titleText: StringManager.barChartLeftAxisTitle,
                   textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                 ),
               ),
@@ -41,7 +40,7 @@ class Chart {
                   margin: 10,
                   getTitles: (double value) {
                     // Add 1 because of zero index.
-                    return '${value.toInt() + 1} ${StringManager().year}';
+                    return '${value.toInt() + 1} ${StringManager.year}';
                   },
                 ),
                 leftTitles: SideTitles(
@@ -66,11 +65,10 @@ class Chart {
                 show: false,
               ),
               groupsSpace: 4,
-              barGroups: ChartData().getData(
-                _monthlySaving,
-                _annualInterestRate,
-                _savingPeriod,
-                _setCalculated,
+              barGroups: ChartData.getData(
+                savingPeriod,
+                rate,
+                yearSavings,
               ),
             ),
           ),

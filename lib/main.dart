@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: StringManager().appTitle,
+      title: StringManager.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: MyHomePage(title: StringManager().appTitle),
+      home: MyHomePage(title: StringManager.appTitle),
     );
   }
 }
@@ -42,12 +42,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final BannerAd _topBannerAd =
-      AdMobService().getBannerAdByType(AdType.topBanner);
+      AdMobService.getBannerAdByType(AdType.topBanner);
   final BannerAd _bottomBannerAd =
-      AdMobService().getBannerAdByType(AdType.bottomBanner);
+      AdMobService.getBannerAdByType(AdType.bottomBanner);
 
   // *** State ***
-  String _dropdownValue = StringManager().dropdownValues.first;
+  String _dropdownValue = StringManager.dropdownValues.first;
 
   // *** 金額の単位：万 ***
   int _monthlySaving = 2; // 毎月の積立金額
@@ -111,8 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called.
     return Scaffold(
-      appBar: MyAppBar().getWidget(widget.title),
-      body: MyBody().getWidget(
+      appBar: MyAppBar.getWidget(widget.title),
+      body: MyBody.getWidget(
           _dropdownValue,
           _setDropdownValue,
           _monthlySaving,
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _setCalculatedResult,
           _topBannerAd,
           context),
-      bottomNavigationBar: MyBottomNavigationBar().getWidget(_bottomBannerAd),
+      bottomNavigationBar: MyBottomNavigationBar.getWidget(_bottomBannerAd),
     );
   }
 }

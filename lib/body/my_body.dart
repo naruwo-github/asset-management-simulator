@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MyBody {
-  SafeArea getWidget(
+  static SafeArea getWidget(
       String _dropdownValue,
       void Function(String) _setDropdownValue,
       int _monthlySaving,
@@ -17,28 +17,34 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
-      int _targetAmount,// TODO: not using
-      void Function(int) _setTargetAmount,// TODO: not using
+      int _targetAmount, // TODO: not using
+      void Function(int) _setTargetAmount, // TODO: not using
       int _calculatedResult,
       void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
+    double yearSaving = _monthlySaving * 10000 * 12;
+    double rate = _annualInterestRate / 100;
+    List<double> yearSavings = [yearSaving];
+    for (int i = 1; i < _savingPeriod; i++) {
+      yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
+    }
+    _setCalculatedResult((yearSavings.last * (1 + rate)).toInt());
     return SafeArea(
       child: Column(
         children: [
-          AdMobService().getBannerAdContainer(_topBannerAd),
+          AdMobService.getBannerAdContainer(_topBannerAd),
           Expanded(
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Chart().getWidget(
-                    _monthlySaving,
-                    _annualInterestRate,
+                  Chart.getWidget(
                     _savingPeriod,
-                    _setCalculatedResult,
+                    rate,
+                    yearSavings,
                   ),
-                  Setting().getWidget(
+                  Setting.getWidget(
                     _dropdownValue,
                     _setDropdownValue,
                     _monthlySaving,
@@ -48,18 +54,21 @@ class MyBody {
                     _savingPeriod,
                     _setSavingPeriod,
                   ),
-                  ResultText().getWidget(_calculatedResult, _context),
+                  ResultText.getWidget(
+                    _calculatedResult,
+                    _context,
+                  ),
                   OutlinedButton(
                     onPressed: () {
                       showDialog(
                           context: _context,
                           builder: (context) {
                             return AlertDialog(
-                              content: Text(StringManager().disclaimerContent),
+                              content: Text(StringManager.disclaimerContent),
                             );
                           });
                     },
-                    child: Text(StringManager().disclaimerTitle),
+                    child: Text(StringManager.disclaimerTitle),
                     style: OutlinedButton.styleFrom(
                       primary: Colors.black,
                       shape: const StadiumBorder(),

@@ -42,9 +42,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final BannerAd _topBannerAd =
-      AdMobService().getBannerAdByType(AdType.topBanner);
+      AdMobService.getBannerAdByType(AdType.topBanner);
   final BannerAd _bottomBannerAd =
-      AdMobService().getBannerAdByType(AdType.bottomBanner);
+      AdMobService.getBannerAdByType(AdType.bottomBanner);
 
   // *** State ***
   String _dropdownValue = StringManager.dropdownValues.first;

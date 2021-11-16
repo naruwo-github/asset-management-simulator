@@ -8,7 +8,7 @@ class MyBottomNavigationBar {
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
-        AdMobService().getBannerAdContainer(_bottomBannerAd),
+        AdMobService.getBannerAdContainer(_bottomBannerAd),
       ],
     );
   }

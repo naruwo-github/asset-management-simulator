@@ -8,7 +8,7 @@ enum AdType {
 
 class AdMobService {
   // バナー広告のウィジェットを作成する関数
-  Container getBannerAdContainer(BannerAd bannerAd) {
+  static Container getBannerAdContainer(BannerAd bannerAd) {
     return Container(
       alignment: Alignment.center,
       child: AdWidget(ad: bannerAd),
@@ -18,7 +18,7 @@ class AdMobService {
   }
 
   // バナー広告のインスタンスを作成する関数
-  BannerAd getBannerAdByType(AdType type) {
+  static BannerAd getBannerAdByType(AdType type) {
     String adId = getTopBannerAdUnitId();
     if (type == AdType.bottomBanner) {
       adId = getBottomBannerAdUnitId();
@@ -31,7 +31,7 @@ class AdMobService {
     );
   }
 
-  String getTopBannerAdUnitId() {
+  static String getTopBannerAdUnitId() {
     // TODO: 本番ではコメントアウト解除
     // if (Platform.isAndroid) {
     //   // 本番用バナー広告ID
@@ -44,7 +44,7 @@ class AdMobService {
     return 'ca-app-pub-3940256099942544/6300978111';
   }
 
-  String getBottomBannerAdUnitId() {
+  static String getBottomBannerAdUnitId() {
     // TODO: 本番ではコメントアウト解除
     // if (Platform.isAndroid) {
     //   // 本番用バナー広告ID

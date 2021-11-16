@@ -26,7 +26,7 @@ class MyBody {
     return SafeArea(
       child: Column(
         children: [
-          AdMobService().getBannerAdContainer(_topBannerAd),
+          AdMobService.getBannerAdContainer(_topBannerAd),
           Expanded(
             child: Center(
               child: Column(

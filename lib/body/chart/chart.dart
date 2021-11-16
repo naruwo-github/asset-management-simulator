@@ -5,19 +5,10 @@ import 'package:flutter/material.dart';
 
 class Chart {
   static AspectRatio getWidget(
-    int _monthlySaving,
-    int _annualInterestRate,
-    int _savingPeriod,
-    void Function(int) _setCalculated,
+    int savingPeriod,
+    double rate,
+    List<double> yearSavings,
   ) {
-    double yearSaving = _monthlySaving * 10000 * 12;
-    double rate = _annualInterestRate / 100;
-    List<double> yearSavings = [yearSaving];
-    for (int i = 1; i < _savingPeriod; i++) {
-      yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
-    }
-    _setCalculated((yearSavings.last * (1 + rate)).toInt());
-
     return AspectRatio(
       aspectRatio: 1.66,
       child: Card(
@@ -75,7 +66,7 @@ class Chart {
               ),
               groupsSpace: 4,
               barGroups: ChartData.getData(
-                _savingPeriod,
+                savingPeriod,
                 rate,
                 yearSavings,
               ),

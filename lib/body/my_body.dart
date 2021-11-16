@@ -23,6 +23,13 @@ class MyBody {
       void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
+    double yearSaving = _monthlySaving * 10000 * 12;
+    double rate = _annualInterestRate / 100;
+    List<double> yearSavings = [yearSaving];
+    for (int i = 1; i < _savingPeriod; i++) {
+      yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
+    }
+    _setCalculatedResult((yearSavings.last * (1 + rate)).toInt());
     return SafeArea(
       child: Column(
         children: [
@@ -33,10 +40,9 @@ class MyBody {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Chart.getWidget(
-                    _monthlySaving,
-                    _annualInterestRate,
                     _savingPeriod,
-                    _setCalculatedResult,
+                    rate,
+                    yearSavings,
                   ),
                   Setting.getWidget(
                     _dropdownValue,

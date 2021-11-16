@@ -41,6 +41,16 @@ dependencies:
   # FL Chart Package
   fl_chart: ^0.40.2
 
+  # Icon Generator
+  flutter_launcher_icons: ^0.9.2
+
+# Set App Icons
+flutter_icons:
+  android: "launcher_icon"
+  remove_alpha_ios: true
+  ios: true
+  image_path: "assets/icon.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

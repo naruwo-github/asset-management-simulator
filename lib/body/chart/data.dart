@@ -2,8 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class ChartData {
-  static const Color saved = Colors.amber;
-  static const Color increased = Colors.cyan;
+  static const Color saved = Colors.lightBlueAccent;
+  static const Color increased = Colors.pinkAccent;
 
   List<BarChartGroupData> getData(
     int _monthlySaving,

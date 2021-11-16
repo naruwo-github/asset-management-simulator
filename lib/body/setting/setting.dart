@@ -20,10 +20,10 @@ class Setting {
         DropdownButton(
           value: _dropdownValue,
           icon: const Icon(Icons.arrow_downward),
-          style: const TextStyle(color: Colors.lightGreen),
+          style: const TextStyle(color: Colors.orange),
           underline: Container(
             height: 2,
-            color: Colors.lightGreenAccent,
+            color: Colors.orangeAccent,
           ),
           onChanged: (Object? newValue) {
             _setDropdownValue(newValue.toString());
@@ -33,7 +33,7 @@ class Setting {
           }).toList(),
         ),
         Container(
-          color: Colors.lightGreen,
+          color: Colors.orange,
           padding: const EdgeInsets.all(8),
           margin: const EdgeInsets.all(8),
           child: Column(

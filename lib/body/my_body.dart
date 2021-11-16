@@ -17,6 +17,8 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
+      int _targetAmount,// TODO: not using
+      void Function(int) _setTargetAmount,// TODO: not using
       int _calculatedResult,
       void Function(int) _setCalculatedResult,
       BannerAd _topBannerAd,
@@ -61,7 +63,7 @@ class MyBody {
                     style: OutlinedButton.styleFrom(
                       primary: Colors.black,
                       shape: const StadiumBorder(),
-                      side: const BorderSide(color: Colors.green),
+                      side: const BorderSide(color: Colors.orange),
                     ),
                   ),
                 ],

@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // This method is rerun every time setState is called.
     return Scaffold(
       appBar: MyAppBar.getWidget(widget.title),
-      body: MyBody().getWidget(
+      body: MyBody.getWidget(
           _dropdownValue,
           _setDropdownValue,
           _monthlySaving,

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MyBody {
-  SafeArea getWidget(
+  static SafeArea getWidget(
       String _dropdownValue,
       void Function(String) _setDropdownValue,
       int _monthlySaving,

@@ -17,7 +17,7 @@ class SettingElementUnit {
           style: const TextStyle(color: Colors.black),
           underline: Container(
             height: 2,
-            color: Colors.lightGreenAccent,
+            color: Colors.white,
           ),
           onChanged: (Object? newValue) {
             setIntValue(newValue! as int);

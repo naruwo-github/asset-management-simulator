@@ -58,11 +58,11 @@ class MyBody {
                           context: _context,
                           builder: (context) {
                             return AlertDialog(
-                              content: Text(StringManager().disclaimerContent),
+                              content: Text(StringManager.disclaimerContent),
                             );
                           });
                     },
-                    child: Text(StringManager().disclaimerTitle),
+                    child: Text(StringManager.disclaimerTitle),
                     style: OutlinedButton.styleFrom(
                       primary: Colors.black,
                       shape: const StadiumBorder(),

@@ -35,7 +35,7 @@ class Chart {
               axisTitleData: FlAxisTitleData(
                 leftTitle: AxisTitle(
                   showTitle: true,
-                  titleText: StringManager().barChartLeftAxisTitle,
+                  titleText: StringManager.barChartLeftAxisTitle,
                   textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
                 ),
               ),
@@ -49,7 +49,7 @@ class Chart {
                   margin: 10,
                   getTitles: (double value) {
                     // Add 1 because of zero index.
-                    return '${value.toInt() + 1} ${StringManager().year}';
+                    return '${value.toInt() + 1} ${StringManager.year}';
                   },
                 ),
                 leftTitles: SideTitles(

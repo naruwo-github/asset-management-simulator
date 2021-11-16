@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: StringManager().appTitle,
+      title: StringManager.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: MyHomePage(title: StringManager().appTitle),
+      home: MyHomePage(title: StringManager.appTitle),
     );
   }
 }
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       AdMobService().getBannerAdByType(AdType.bottomBanner);
 
   // *** State ***
-  String _dropdownValue = StringManager().dropdownValues.first;
+  String _dropdownValue = StringManager.dropdownValues.first;
 
   // *** 金額の単位：万 ***
   int _monthlySaving = 2; // 毎月の積立金額

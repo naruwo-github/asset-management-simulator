@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class ResultText {
   static Text getWidget(int _calculatedResult, BuildContext _context) {
     String formattedResult =
-        StringManager().separateByThreeDigits(_calculatedResult.toString());
+        StringManager.separateByThreeDigits(_calculatedResult.toString());
     return Text(
-      '${StringManager().resultTextPrefix}: $formattedResult ${StringManager().currency}',
+      '${StringManager.resultTextPrefix}: $formattedResult ${StringManager.currency}',
       style: Theme.of(_context).textTheme.headline4,
     );
   }

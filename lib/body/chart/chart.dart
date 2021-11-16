@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class Chart {
-  AspectRatio getWidget(
+  static AspectRatio getWidget(
     int _monthlySaving,
     int _annualInterestRate,
     int _savingPeriod,
@@ -74,7 +74,7 @@ class Chart {
                 show: false,
               ),
               groupsSpace: 4,
-              barGroups: ChartData().getData(
+              barGroups: ChartData.getData(
                 _savingPeriod,
                 rate,
                 yearSavings,

@@ -32,13 +32,13 @@ class MyBody {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Chart().getWidget(
+                  Chart.getWidget(
                     _monthlySaving,
                     _annualInterestRate,
                     _savingPeriod,
                     _setCalculatedResult,
                   ),
-                  Setting().getWidget(
+                  Setting.getWidget(
                     _dropdownValue,
                     _setDropdownValue,
                     _monthlySaving,
@@ -48,7 +48,7 @@ class MyBody {
                     _savingPeriod,
                     _setSavingPeriod,
                   ),
-                  ResultText().getWidget(
+                  ResultText.getWidget(
                     _calculatedResult,
                     _context,
                   ),

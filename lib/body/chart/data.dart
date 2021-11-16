@@ -5,7 +5,7 @@ class ChartData {
   static const Color saved = Colors.lightBlueAccent;
   static const Color increased = Colors.pinkAccent;
 
-  List<BarChartGroupData> getData(
+  static List<BarChartGroupData> getData(
       int period,
       double rate,
       List<double> yearSavings,

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Setting {
-  Row getWidget(
+  static Row getWidget(
     String _dropdownValue,
     void Function(String) _setDropdownValue,
     int _monthlySaving,
@@ -39,19 +39,19 @@ class Setting {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SettingElementUnit().getWidget(
+              SettingElementUnit.getWidget(
                 StringManager().monthlySaving,
                 _monthlySaving,
                 _setMonthlySaving,
                 StringManager().monthlySavingUnit,
               ),
-              SettingElementUnit().getWidget(
+              SettingElementUnit.getWidget(
                 StringManager().annualInterestRate,
                 _annualInterestRate,
                 _setAnnualInterestRate,
                 StringManager().rate,
               ),
-              SettingElementUnit().getWidget(
+              SettingElementUnit.getWidget(
                   StringManager().savingPeriod,
                   _savingPeriod,
                   _setSavingPeriod,

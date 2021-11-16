@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called.
     return Scaffold(
-      appBar: MyAppBar().getWidget(widget.title),
+      appBar: MyAppBar.getWidget(widget.title),
       body: MyBody().getWidget(
           _dropdownValue,
           _setDropdownValue,
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _setCalculatedResult,
           _topBannerAd,
           context),
-      bottomNavigationBar: MyBottomNavigationBar().getWidget(_bottomBannerAd),
+      bottomNavigationBar: MyBottomNavigationBar.getWidget(_bottomBannerAd),
     );
   }
 }

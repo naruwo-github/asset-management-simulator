@@ -19,15 +19,17 @@ class MyBody {
       void Function(int) _setSavingPeriod,
       int _targetAmount, // TODO: not using
       void Function(int) _setTargetAmount, // TODO: not using
-      int _calculatedResult,
+      String _calculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
+    // Calculate data to show on chart.
     double yearSaving = _monthlySaving * 10000 * 12;
     double rate = _annualInterestRate / 100;
     List<double> yearSavings = [yearSaving];
     for (int i = 1; i < _savingPeriod; i++) {
       yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
     }
+
     return SafeArea(
       child: Column(
         children: [

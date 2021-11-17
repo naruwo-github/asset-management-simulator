@@ -48,18 +48,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // *** State ***
   String _dropdownValue = StringManager.dropdownValues.first;
+  String _calculatedResult = ''; // 計算結果
 
   // *** 金額の単位：万 ***
-  int _monthlySaving = 2; // 毎月の積立金額
+  int _monthlySaving = 3; // 毎月の積立金額
   int _annualInterestRate = 3; // 利回り（年率）
-  int _savingPeriod = 5; // 積立期間
-  int _targetAmount = 1000; // 目標金額
-  int _calculatedResult = 0; // 計算結果
+  int _savingPeriod = 10; // 積立期間
+  int _targetAmount = 2000; // 目標金額// TODO: not using now
 
   // *** setState ***
   void _setDropdownValue(String value) {
     setState(() {
       _dropdownValue = value;
+      calculateResult();
     });
   }
 
@@ -99,10 +100,14 @@ class _MyHomePageState extends State<MyHomePage> {
         resultAmount = (resultAmount + (_monthlySaving * 10000 * 12)) *
             (1 + _annualInterestRate / 100);
       }
-      _calculatedResult = resultAmount.toInt();
+      _calculatedResult = StringManager.formatCalculatedResult(resultAmount.toInt(), _dropdownValue);
     }
     if (_dropdownValue == StringManager.dropdownValues[1]) {
-      // TODO: 積立期間、利回り、目標金額から積立金額/月を算出
+      // 積立期間、利回り、目標金額から積立金額/月を算出
+      // TODO: 福利の値を算出するべし
+      double welfare = 1.03 * ((1 + 1.03) * 1.03 + 1);
+      double resultMonthlySaving = _targetAmount * 10000 / 12 / welfare;
+      _calculatedResult = StringManager.formatCalculatedResult(resultMonthlySaving.toInt(), _dropdownValue);
     }
     if (_dropdownValue == StringManager.dropdownValues.last) {
       // TODO: 積立金額/月、利回り、目標金額から積立期間を算出
@@ -138,8 +143,8 @@ class _MyHomePageState extends State<MyHomePage> {
           _setAnnualInterestRate,
           _savingPeriod,
           _setSavingPeriod,
-          _targetAmount,
-          _setTargetAmount,
+          _targetAmount,// TODO: not using now
+          _setTargetAmount,// TODO: not using now
           _calculatedResult,
           _topBannerAd,
           context),

@@ -44,4 +44,22 @@ class StringManager {
     // 後ろから入れたので、逆にする
     return String.fromCharCodes(rtnText.runes.toList().reversed);
   }
+
+  // 結果のテキストを整形する関数
+  static String formatCalculatedResult(int result, String _dropdownValue) {
+    String formattedResult = separateByThreeDigits(result.toString());
+    if (_dropdownValue == dropdownValues.first) {
+      // 例: 推定額: 523,511 円
+      return '$resultTextPrefix: $formattedResult $currency';
+    }
+    if (_dropdownValue == dropdownValues[1]) {
+      // 例: 推定額: 523,511 円
+      return '$resultTextPrefix: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
+    }
+    if (_dropdownValue == dropdownValues.last) {
+      // 例: 推定期間: 10年1ヶ月
+    }
+    return '';
+  }
+
 }

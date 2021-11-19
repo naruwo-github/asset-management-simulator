@@ -1,12 +1,9 @@
-import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:flutter/material.dart';
 
 class ResultText {
-  static Text getWidget(int _calculatedResult, BuildContext _context) {
-    String formattedResult =
-        StringManager.separateByThreeDigits(_calculatedResult.toString());
+  static Text getWidget(String _calculatedResult, BuildContext _context) {
     return Text(
-      '${StringManager.resultTextPrefix}: $formattedResult ${StringManager.currency}',
+      _calculatedResult,
       style: Theme.of(_context).textTheme.headline4,
     );
   }

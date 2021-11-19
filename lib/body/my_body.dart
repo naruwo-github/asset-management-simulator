@@ -17,19 +17,25 @@ class MyBody {
       void Function(int) _setAnnualInterestRate,
       int _savingPeriod,
       void Function(int) _setSavingPeriod,
-      int _targetAmount, // TODO: not using
-      void Function(int) _setTargetAmount, // TODO: not using
-      int _calculatedResult,
-      void Function(int) _setCalculatedResult,
+      int _targetAmount,
+      void Function(int) _setTargetAmount,
+      int _calculatedSavingAmountPerMonth,
+      String _calculatedResult,
       BannerAd _topBannerAd,
       BuildContext _context) {
-    double yearSaving = _monthlySaving * 10000 * 12;
+    int monthlySavingAmount = _monthlySaving;
+    if (_dropdownValue == StringManager.dropdownValues[1]) {
+      // 「毎月積立金額」を求める場合、値は算出されたものを使う
+      monthlySavingAmount = _calculatedSavingAmountPerMonth;
+    }
+    // Calculate data to show on chart.
+    double yearSaving = monthlySavingAmount * 10000 * 12;
     double rate = _annualInterestRate / 100;
     List<double> yearSavings = [yearSaving];
     for (int i = 1; i < _savingPeriod; i++) {
       yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
     }
-    _setCalculatedResult((yearSavings.last * (1 + rate)).toInt());
+
     return SafeArea(
       child: Column(
         children: [
@@ -53,6 +59,8 @@ class MyBody {
                     _setAnnualInterestRate,
                     _savingPeriod,
                     _setSavingPeriod,
+                    _targetAmount,
+                    _setTargetAmount,
                   ),
                   ResultText.getWidget(
                     _calculatedResult,

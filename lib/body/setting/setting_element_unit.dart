@@ -5,6 +5,7 @@ class SettingElementUnit {
     String title,
     int defaultValue,
     void Function(int) setIntValue,
+    List<int> items,
     String unit,
   ) {
     return Row(
@@ -22,8 +23,7 @@ class SettingElementUnit {
           onChanged: (Object? newValue) {
             setIntValue(newValue! as int);
           },
-          items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 50]
-              .map((int item) {
+          items: items.map((int item) {
             return DropdownMenuItem(value: item, child: Text(item.toString()));
           }).toList(),
         ),

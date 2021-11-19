@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Setting {
+  static List<int> items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 50, 100];
+
   static Row getWidget(
     String _dropdownValue,
     void Function(String) _setDropdownValue,
@@ -13,6 +15,8 @@ class Setting {
     void Function(int) _setAnnualInterestRate,
     int _savingPeriod,
     void Function(int) _setSavingPeriod,
+    int _targetAmount,
+    void Function(int) _setTargetAmount,
   ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,20 +43,40 @@ class Setting {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SettingElementUnit.getWidget(
-                StringManager.monthlySaving,
-                _monthlySaving,
-                _setMonthlySaving,
-                StringManager.monthlySavingUnit,
-              ),
+              if (_dropdownValue != StringManager.dropdownValues[1])
+                // 「毎月積立金額」を選択してる場合のみ、非表示、そうでない場合に「毎月の積立金額」蘭を表示
+                SettingElementUnit.getWidget(
+                  StringManager.monthlySaving,
+                  _monthlySaving,
+                  _setMonthlySaving,
+                  items,
+                  StringManager.monthlySavingUnit,
+                ),
               SettingElementUnit.getWidget(
                 StringManager.annualInterestRate,
                 _annualInterestRate,
                 _setAnnualInterestRate,
+                items,
                 StringManager.rate,
               ),
-              SettingElementUnit.getWidget(StringManager.savingPeriod,
-                  _savingPeriod, _setSavingPeriod, StringManager.year),
+              if (_dropdownValue != StringManager.dropdownValues.last)
+                // 「積立期間」を選択してる場合のみ、非表示、そうでない場合に「積立期間」蘭を表示
+                SettingElementUnit.getWidget(
+                  StringManager.savingPeriod,
+                  _savingPeriod,
+                  _setSavingPeriod,
+                  items,
+                  StringManager.year,
+                ),
+              if (_dropdownValue != StringManager.dropdownValues.first)
+                // 「最終積立金額」を選択してる場合のみ、非表示、そうでない場合に「目標金額」蘭を表示
+                SettingElementUnit.getWidget(
+                  StringManager.targetAmount,
+                  _targetAmount,
+                  _setTargetAmount,
+                  items.map((element) => element * 100).toList(),
+                  StringManager.monthlySavingUnit,
+                ),
             ],
           ),
         ),

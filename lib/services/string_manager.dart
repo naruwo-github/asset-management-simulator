@@ -17,7 +17,7 @@ class StringManager {
   static String targetAmount = '目標金額';
 
   // result
-  static String resultTextPrefix = '推定額';
+  static List<String> resultTextPrefix = ['合計', '毎月'];
   static String disclaimerTitle = '＊免責事項';
   static String disclaimerContent = '【免責事項】\n'
       '・この結果は概算値です。手数料や税金を考慮しておらず、実際の金額と異なる場合があります。\n'
@@ -52,11 +52,11 @@ class StringManager {
     String formattedResult = separateByThreeDigits(result.toString());
     if (_dropdownValue == dropdownValues.first) {
       // 例: 推定額: 523,511 円
-      return '$resultTextPrefix: $formattedResult $currency';
+      return '${resultTextPrefix.first}: $formattedResult $currency';
     }
     if (_dropdownValue == dropdownValues[1]) {
       // 例: 推定額: 523,511 円
-      return '$resultTextPrefix: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
+      return '${resultTextPrefix[1]}: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
     }
     // TODO: *** アップデート ***
     // if (_dropdownValue == dropdownValues.last) {

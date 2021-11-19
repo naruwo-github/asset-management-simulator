@@ -54,7 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _monthlySaving = 3; // 毎月の積立金額
   int _annualInterestRate = 3; // 利回り（年率）
   int _savingPeriod = 10; // 積立期間
-  int _targetAmount = 2000; // 目標金額// TODO: not be showed now
+  int _targetAmount = 2000; // 目標金額
+  // *** 金額の単位：円 ***
+  int _calculatedSavingAmountPerMonth = 0; // 毎月積み立てる必要のある額
 
   // *** setState ***
   void _setDropdownValue(String value) {
@@ -110,6 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
         welfare = rate * (welfare + 1);
       }
       double resultMonthlySaving = _targetAmount * 10000 / 12 / welfare;
+      _calculatedSavingAmountPerMonth = resultMonthlySaving.toInt();
       _calculatedResult = StringManager.formatCalculatedResult(resultMonthlySaving.toInt(), _dropdownValue);
     }
     if (_dropdownValue == StringManager.dropdownValues.last) {
@@ -146,8 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
           _setAnnualInterestRate,
           _savingPeriod,
           _setSavingPeriod,
-          _targetAmount,// TODO: not using now
-          _setTargetAmount,// TODO: not using now
+          _targetAmount,
+          _setTargetAmount,
+          _calculatedSavingAmountPerMonth,
           _calculatedResult,
           _topBannerAd,
           context),

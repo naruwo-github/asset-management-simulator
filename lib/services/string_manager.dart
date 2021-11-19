@@ -8,7 +8,9 @@ class StringManager {
   static String monthlySavingUnit = '万円';
 
   // setting
-  static List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
+  // TODO: *** アップデート ***
+  // static List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
+  static List<String> dropdownValues = ['最終積立金額', '毎月積立金額'];
   static String monthlySaving = '毎月の積立金額';
   static String annualInterestRate = '利回り（年率）';
   static String savingPeriod = '積立期間';
@@ -56,10 +58,12 @@ class StringManager {
       // 例: 推定額: 523,511 円
       return '$resultTextPrefix: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
     }
-    if (_dropdownValue == dropdownValues.last) {
-      // 例: 推定期間: 10年1ヶ月
-      return '実装中...';// TODO: 実装中...
-    }
+    // TODO: *** アップデート ***
+    // if (_dropdownValue == dropdownValues.last) {
+    //   // 例: 推定期間: 10年1ヶ月
+    //   return '実装中...';// TODO: 実装中...
+    // }
+    // TODO: *** アップデート ***
     return '';
   }
 

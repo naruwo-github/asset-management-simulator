@@ -57,6 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _targetAmount = 2000; // 目標金額
   // *** 金額の単位：円 ***
   int _calculatedSavingAmountPerMonth = 0; // 毎月積み立てる必要のある額
+  // *** 積立期間の単位：ヶ月 ***
+  // TODO: *** アップデート ***
+  int _calculatedSavingPeriod = 0; // 積立に必要な月数
+  // TODO: *** アップデート ***
 
   // *** setState ***
   void _setDropdownValue(String value) {
@@ -115,9 +119,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _calculatedSavingAmountPerMonth = resultMonthlySaving.toInt();
       _calculatedResult = StringManager.formatCalculatedResult(resultMonthlySaving.toInt(), _dropdownValue);
     }
-    if (_dropdownValue == StringManager.dropdownValues.last) {
-      // TODO: 積立金額/月、利回り、目標金額から積立期間を算出
-    }
+    // TODO: *** アップデート ***
+    // if (_dropdownValue == StringManager.dropdownValues.last) {
+    //   // TODO: 積立金額/月、利回り、目標金額から積立期間を算出
+    // }
+    // TODO: *** アップデート ***
   }
 
   @override

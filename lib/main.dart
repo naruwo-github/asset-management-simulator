@@ -94,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _setTargetAmount(int value) {
     setState(() {
       _targetAmount = value;
+      calculateResult();
     });
   }
 

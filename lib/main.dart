@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // TODO: *** アップデート ***
   int _calculatedSavingPeriod = 0; // 積立に必要な月数
   // TODO: *** アップデート ***
+  int _touchedRodStackItemIndex = -1;
 
   // *** setState ***
   void _setDropdownValue(String value) {
@@ -98,6 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _setTouchedRodStackItemIndex(int value) {
+    setState(() {
+      _touchedRodStackItemIndex = value;
+    });
+  }
+
   void calculateResult() {
     // Should be called in setState().
     if (_dropdownValue == StringManager.dropdownValues.first) {
@@ -107,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
         resultAmount = (resultAmount + (_monthlySaving * 10000 * 12)) *
             (1 + _annualInterestRate / 100);
       }
-      _calculatedResult = StringManager.formatCalculatedResult(resultAmount.toInt(), _dropdownValue);
+      _calculatedResult = StringManager.formatCalculatedResult(
+          resultAmount.toInt(), _dropdownValue);
     }
     if (_dropdownValue == StringManager.dropdownValues[1]) {
       // 積立期間、利回り、目標金額から積立金額/月を算出
@@ -118,7 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
       }
       double resultMonthlySaving = _targetAmount * 10000 / 12 / welfare;
       _calculatedSavingAmountPerMonth = resultMonthlySaving.toInt();
-      _calculatedResult = StringManager.formatCalculatedResult(resultMonthlySaving.toInt(), _dropdownValue);
+      _calculatedResult = StringManager.formatCalculatedResult(
+          resultMonthlySaving.toInt(), _dropdownValue);
     }
     // TODO: *** アップデート ***
     // if (_dropdownValue == StringManager.dropdownValues.last) {
@@ -148,20 +157,23 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyAppBar.getWidget(widget.title),
       body: MyBody.getWidget(
-          _dropdownValue,
-          _setDropdownValue,
-          _monthlySaving,
-          _setMonthlySaving,
-          _annualInterestRate,
-          _setAnnualInterestRate,
-          _savingPeriod,
-          _setSavingPeriod,
-          _targetAmount,
-          _setTargetAmount,
-          _calculatedSavingAmountPerMonth,
-          _calculatedResult,
-          _topBannerAd,
-          context),
+        _dropdownValue,
+        _setDropdownValue,
+        _monthlySaving,
+        _setMonthlySaving,
+        _annualInterestRate,
+        _setAnnualInterestRate,
+        _savingPeriod,
+        _setSavingPeriod,
+        _targetAmount,
+        _setTargetAmount,
+        _calculatedSavingAmountPerMonth,
+        _calculatedResult,
+        _topBannerAd,
+        context,
+        _touchedRodStackItemIndex,
+        _setTouchedRodStackItemIndex,
+      ),
       bottomNavigationBar: MyBottomNavigationBar.getWidget(_bottomBannerAd),
     );
   }

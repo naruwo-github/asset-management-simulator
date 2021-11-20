@@ -9,6 +9,8 @@ class Chart {
     double rate,
     List<double> yearSavings,
     BuildContext _context,
+    int _touchedRodStackItemIndex,
+    void Function(int) _setTouchedRodStackItemIndex,
   ) {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -22,7 +24,15 @@ class Chart {
             BarChartData(
               alignment: BarChartAlignment.center,
               barTouchData: BarTouchData(
-                enabled: false,// TODO: ここにグラフのタッチイベントを追加する
+                touchCallback: (FlTouchEvent event, barTouchResponse) {
+                  if (!event.isInterestedForInteractions ||
+                      barTouchResponse == null ||
+                      barTouchResponse.spot == null) {
+                    _setTouchedRodStackItemIndex(-1);
+                    return;
+                  }
+                  _setTouchedRodStackItemIndex(barTouchResponse.spot!.touchedBarGroupIndex);
+                },
               ),
               titlesData: FlTitlesData(
                 show: true,
@@ -64,6 +74,7 @@ class Chart {
                 rate,
                 yearSavings,
                 _context,
+                _touchedRodStackItemIndex,
               ),
             ),
           ),

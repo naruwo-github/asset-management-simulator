@@ -6,7 +6,6 @@ class ThemeManager {
       primarySwatch: Colors.orange,
       brightness: Brightness.light,
       appBarTheme: const AppBarTheme(
-        color: Colors.orange,
         foregroundColor: Colors.white,
       ),
     );
@@ -18,7 +17,6 @@ class ThemeManager {
       brightness: Brightness.dark,
       appBarTheme: const AppBarTheme(
         color: Colors.orange,
-        foregroundColor: Colors.white,
       ),
     );
   }

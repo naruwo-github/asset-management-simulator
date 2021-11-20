@@ -27,9 +27,6 @@ class StringManager {
       '・本シミュレーションの内容については、予告なく変更される場合があります。\n'
       '・本シミュレーション及び掲載された情報を利用することで生じるいかなる損害（直接的、間接的を問わず）についても、当方は一切の責任を負うものではありません。実際の資産運用や投資判断に当たっては、必ずご自身の責任において最終的に判断してください。';
 
-  // chart
-  static String barChartLeftAxisTitle = '合計金額';
-
   // 金額を3桁ごとに,で区切る
   static String separateByThreeDigits(String text) {
     if (text.length < 3) {

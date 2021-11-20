@@ -8,6 +8,7 @@ class Chart {
     int savingPeriod,
     double rate,
     List<double> yearSavings,
+    BuildContext _context,
   ) {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -16,19 +17,12 @@ class Chart {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.only(top: 16.0),
+          padding: const EdgeInsets.only(top: 20),
           child: BarChart(
             BarChartData(
               alignment: BarChartAlignment.center,
               barTouchData: BarTouchData(
-                enabled: false,
-              ),
-              axisTitleData: FlAxisTitleData(
-                leftTitle: AxisTitle(
-                  showTitle: true,
-                  titleText: StringManager.barChartLeftAxisTitle,
-                  textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
-                ),
+                enabled: false,// TODO: ここにグラフのタッチイベントを追加する
               ),
               titlesData: FlTitlesData(
                 show: true,
@@ -69,6 +63,7 @@ class Chart {
                 savingPeriod,
                 rate,
                 yearSavings,
+                _context,
               ),
             ),
           ),

@@ -9,6 +9,7 @@ class ChartData {
       int period,
       double rate,
       List<double> yearSavings,
+      BuildContext _context,
   ) {
     List<BarChartGroupData> dataList = [];
     for (int i = 0; i < period; i++) {
@@ -18,6 +19,7 @@ class ChartData {
           barsSpace: 5,
           barRods: [
             BarChartRodData(
+              width: MediaQuery.of(_context).size.width / period / 2,
               y: yearSavings[i] * (1 + rate),
               rodStackItems: [
                 BarChartRodStackItem(0, yearSavings[i], saved),

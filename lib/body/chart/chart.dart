@@ -24,6 +24,9 @@ class Chart {
             BarChartData(
               alignment: BarChartAlignment.center,
               barTouchData: BarTouchData(
+                touchTooltipData: BarTouchTooltipData(
+                  tooltipBgColor: Colors.black12,
+                ),
                 touchCallback: (FlTouchEvent event, barTouchResponse) {
                   if (!event.isInterestedForInteractions ||
                       barTouchResponse == null ||

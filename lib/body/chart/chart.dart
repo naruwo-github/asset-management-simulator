@@ -8,6 +8,9 @@ class Chart {
     int savingPeriod,
     double rate,
     List<double> yearSavings,
+    BuildContext _context,
+    int _touchedRodStackItemIndex,
+    void Function(int) _setTouchedRodStackItemIndex,
   ) {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -16,19 +19,23 @@ class Chart {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.only(top: 16.0),
+          padding: const EdgeInsets.only(top: 20),
           child: BarChart(
             BarChartData(
               alignment: BarChartAlignment.center,
               barTouchData: BarTouchData(
-                enabled: false,
-              ),
-              axisTitleData: FlAxisTitleData(
-                leftTitle: AxisTitle(
-                  showTitle: true,
-                  titleText: StringManager.barChartLeftAxisTitle,
-                  textStyle: const TextStyle(color: Colors.grey, fontSize: 15),
+                touchTooltipData: BarTouchTooltipData(
+                  tooltipBgColor: Colors.black12,
                 ),
+                touchCallback: (FlTouchEvent event, barTouchResponse) {
+                  if (!event.isInterestedForInteractions ||
+                      barTouchResponse == null ||
+                      barTouchResponse.spot == null) {
+                    _setTouchedRodStackItemIndex(-1);
+                    return;
+                  }
+                  _setTouchedRodStackItemIndex(barTouchResponse.spot!.touchedBarGroupIndex);
+                },
               ),
               titlesData: FlTitlesData(
                 show: true,
@@ -69,6 +76,8 @@ class Chart {
                 savingPeriod,
                 rate,
                 yearSavings,
+                _context,
+                _touchedRodStackItemIndex,
               ),
             ),
           ),

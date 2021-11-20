@@ -22,7 +22,10 @@ class MyBody {
       int _calculatedSavingAmountPerMonth,
       String _calculatedResult,
       BannerAd _topBannerAd,
-      BuildContext _context) {
+      BuildContext _context,
+      int _touchedRodStackItemIndex,
+      void Function(int) _setTouchedRodStackItemIndex,
+      ) {
     int monthlySavingAmount = _monthlySaving;
     if (_dropdownValue == StringManager.dropdownValues[1]) {
       // 「毎月積立金額」を求める場合、値は算出されたものを使う
@@ -49,6 +52,9 @@ class MyBody {
                     _savingPeriod,
                     rate,
                     yearSavings,
+                    _context,
+                    _touchedRodStackItemIndex,
+                    _setTouchedRodStackItemIndex,
                   ),
                   Setting.getWidget(
                     _dropdownValue,
@@ -78,9 +84,11 @@ class MyBody {
                     },
                     child: Text(StringManager.disclaimerTitle),
                     style: OutlinedButton.styleFrom(
-                      primary: Colors.black,
                       shape: const StadiumBorder(),
-                      side: const BorderSide(color: Colors.orange),
+                      side: const BorderSide(
+                        color: Colors.orange,
+                        width: 2,
+                      ),
                     ),
                   ),
                 ],

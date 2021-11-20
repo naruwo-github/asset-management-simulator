@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class ChartData {
-  static const Color saved = Colors.lightBlueAccent;
+  static const Color saved = Colors.lightGreen;
   static const Color increased = Colors.pinkAccent;
 
   static List<BarChartGroupData> getData(

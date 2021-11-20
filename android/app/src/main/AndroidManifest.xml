@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asset_management_simulator">
    <application
-        android:label="asset_management_simulator"
+        android:label="資産運用シミュレータ"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

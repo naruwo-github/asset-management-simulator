@@ -1,5 +1,6 @@
 import 'package:asset_management_simulator/body/my_body.dart';
 import 'package:asset_management_simulator/services/string_manager.dart';
+import 'package:asset_management_simulator/services/theme_manager.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:asset_management_simulator/appBar/app_bar.dart';
 import 'package:asset_management_simulator/bottomNavigationBar/bottom_navigation_bar.dart';
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: StringManager.appTitle,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
+      themeMode: ThemeMode.system,
+      theme: ThemeManager.lightTheme(),
+      darkTheme: ThemeManager.darkTheme(),
       home: MyHomePage(title: StringManager.appTitle),
     );
   }

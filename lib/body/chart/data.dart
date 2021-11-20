@@ -29,7 +29,7 @@ class ChartData {
                     saved,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 3 : 0
+                      width: _touchedRodStackItemIndex == i ? 2 : 0
                   ),
                 ),
                 BarChartRodStackItem(
@@ -38,11 +38,11 @@ class ChartData {
                     increased,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 3 : 0
+                      width: _touchedRodStackItemIndex == i ? 2 : 0
                   ),
                 ),
               ],
-              borderRadius: const BorderRadius.all(Radius.zero),
+              borderRadius: const BorderRadius.all(Radius.circular(3)),
             ),
           ],
         ),

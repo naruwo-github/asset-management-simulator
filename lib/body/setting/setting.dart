@@ -59,7 +59,8 @@ class Setting {
                 items,
                 StringManager.rate,
               ),
-              if (_dropdownValue != StringManager.dropdownValues.last)
+              // TODO: *** アップデート ***
+              // if (_dropdownValue != StringManager.dropdownValues.last)
                 // 「積立期間」を選択してる場合のみ、非表示、そうでない場合に「積立期間」蘭を表示
                 SettingElementUnit.getWidget(
                   StringManager.savingPeriod,

@@ -8,14 +8,16 @@ class StringManager {
   static String monthlySavingUnit = '万円';
 
   // setting
-  static List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
+  // TODO: *** アップデート ***
+  // static List<String> dropdownValues = ['最終積立金額', '毎月積立金額', '積立期間'];
+  static List<String> dropdownValues = ['最終積立金額', '毎月積立金額'];
   static String monthlySaving = '毎月の積立金額';
   static String annualInterestRate = '利回り（年率）';
   static String savingPeriod = '積立期間';
   static String targetAmount = '目標金額';
 
   // result
-  static String resultTextPrefix = '推定額';
+  static List<String> resultTextPrefix = ['合計', '毎月'];
   static String disclaimerTitle = '＊免責事項';
   static String disclaimerContent = '【免責事項】\n'
       '・この結果は概算値です。手数料や税金を考慮しておらず、実際の金額と異なる場合があります。\n'
@@ -50,16 +52,18 @@ class StringManager {
     String formattedResult = separateByThreeDigits(result.toString());
     if (_dropdownValue == dropdownValues.first) {
       // 例: 推定額: 523,511 円
-      return '$resultTextPrefix: $formattedResult $currency';
+      return '${resultTextPrefix.first}: $formattedResult $currency';
     }
     if (_dropdownValue == dropdownValues[1]) {
       // 例: 推定額: 523,511 円
-      return '$resultTextPrefix: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
+      return '${resultTextPrefix[1]}: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
     }
-    if (_dropdownValue == dropdownValues.last) {
-      // 例: 推定期間: 10年1ヶ月
-      return '実装中...';// TODO: 実装中...
-    }
+    // TODO: *** アップデート ***
+    // if (_dropdownValue == dropdownValues.last) {
+    //   // 例: 推定期間: 10年1ヶ月
+    //   return '実装中...';// TODO: 実装中...
+    // }
+    // TODO: *** アップデート ***
     return '';
   }
 

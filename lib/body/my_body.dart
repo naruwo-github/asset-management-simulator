@@ -78,7 +78,11 @@ class MyBody {
                           context: _context,
                           builder: (context) {
                             return AlertDialog(
-                              content: Text(StringManager.disclaimerContent),
+                              content: Text(
+                                StringManager.disclaimerContent,
+                                // バナー広告を隠さないサイズを指定
+                                style: const TextStyle(fontSize: 14),
+                              ),
                             );
                           });
                     },

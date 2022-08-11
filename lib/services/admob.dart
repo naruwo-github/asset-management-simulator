@@ -12,9 +12,9 @@ class AdMobService {
   static Container getBannerAdContainer(BannerAd bannerAd) {
     return Container(
       alignment: Alignment.center,
-      child: AdWidget(ad: bannerAd),
       width: bannerAd.size.width.toDouble(),
       height: bannerAd.size.height.toDouble(),
+      child: AdWidget(ad: bannerAd),
     );
   }
 

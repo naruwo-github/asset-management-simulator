@@ -9,8 +9,8 @@ class ChartData {
       int period,
       double rate,
       List<double> yearSavings,
-      BuildContext _context,
-      int _touchedRodStackItemIndex,
+      BuildContext context,
+      int touchedRodStackItemIndex,
   ) {
     List<BarChartGroupData> dataList = [];
     for (int i = 0; i < period; i++) {
@@ -20,7 +20,7 @@ class ChartData {
           barsSpace: 5,
           barRods: [
             BarChartRodData(
-              width: MediaQuery.of(_context).size.width / period / 2,
+              width: MediaQuery.of(context).size.width / period / 2,
               y: yearSavings[i] * (1 + rate),
               rodStackItems: [
                 BarChartRodStackItem(
@@ -29,7 +29,7 @@ class ChartData {
                     saved,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 2 : 0
+                      width: touchedRodStackItemIndex == i ? 2 : 0
                   ),
                 ),
                 BarChartRodStackItem(
@@ -38,7 +38,7 @@ class ChartData {
                     increased,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 2 : 0
+                      width: touchedRodStackItemIndex == i ? 2 : 0
                   ),
                 ),
               ],

@@ -8,9 +8,9 @@ class Chart {
     int savingPeriod,
     double rate,
     List<double> yearSavings,
-    BuildContext _context,
-    int _touchedRodStackItemIndex,
-    void Function(int) _setTouchedRodStackItemIndex,
+    BuildContext context,
+    int touchedRodStackItemIndex,
+    void Function(int) setTouchedRodStackItemIndex,
   ) {
     return AspectRatio(
       aspectRatio: 1.66,
@@ -31,10 +31,10 @@ class Chart {
                   if (!event.isInterestedForInteractions ||
                       barTouchResponse == null ||
                       barTouchResponse.spot == null) {
-                    _setTouchedRodStackItemIndex(-1);
+                    setTouchedRodStackItemIndex(-1);
                     return;
                   }
-                  _setTouchedRodStackItemIndex(barTouchResponse.spot!.touchedBarGroupIndex);
+                  setTouchedRodStackItemIndex(barTouchResponse.spot!.touchedBarGroupIndex);
                 },
               ),
               titlesData: FlTitlesData(
@@ -76,8 +76,8 @@ class Chart {
                 savingPeriod,
                 rate,
                 yearSavings,
-                _context,
-                _touchedRodStackItemIndex,
+                context,
+                touchedRodStackItemIndex,
               ),
             ),
           ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ResultText {
-  static Text getWidget(String _calculatedResult, BuildContext _context) {
+  static Text getWidget(String calculatedResult, BuildContext context) {
     return Text(
-      _calculatedResult,
-      style: Theme.of(_context).textTheme.headline4,
+      calculatedResult,
+      style: Theme.of(context).textTheme.headline4,
     );
   }
 }

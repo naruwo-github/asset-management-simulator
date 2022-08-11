@@ -53,7 +53,7 @@ class StringManager {
     }
     if (_dropdownValue == dropdownValues[1]) {
       // 例: 毎月: 523,511 円
-      return '${resultTextPrefix[1]}: $formattedResult $currency';// TODO: 一つ上の条件式と被ってる
+      return '${resultTextPrefix[1]}: $formattedResult $currency'; // TODO: 一つ上の条件式と被ってる
     }
     // TODO: *** アップデート ***
     // if (_dropdownValue == dropdownValues.last) {
@@ -63,5 +63,4 @@ class StringManager {
     // TODO: *** アップデート ***
     return '';
   }
-
 }

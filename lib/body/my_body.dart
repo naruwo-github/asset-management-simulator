@@ -8,23 +8,23 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class MyBody {
   static SafeArea getWidget(
-      String dropdownValue,
-      void Function(String) setDropdownValue,
-      int monthlySaving,
-      void Function(int) setMonthlySaving,
-      int annualInterestRate,
-      void Function(int) setAnnualInterestRate,
-      int savingPeriod,
-      void Function(int) setSavingPeriod,
-      int targetAmount,
-      void Function(int) setTargetAmount,
-      int calculatedSavingAmountPerMonth,
-      String calculatedResult,
-      BannerAd topBannerAd,
-      BuildContext context,
-      int touchedRodStackItemIndex,
-      void Function(int) setTouchedRodStackItemIndex,
-      ) {
+    String dropdownValue,
+    void Function(String) setDropdownValue,
+    int monthlySaving,
+    void Function(int) setMonthlySaving,
+    int annualInterestRate,
+    void Function(int) setAnnualInterestRate,
+    int savingPeriod,
+    void Function(int) setSavingPeriod,
+    int targetAmount,
+    void Function(int) setTargetAmount,
+    int calculatedSavingAmountPerMonth,
+    String calculatedResult,
+    BannerAd topBannerAd,
+    BuildContext context,
+    int touchedRodStackItemIndex,
+    void Function(int) setTouchedRodStackItemIndex,
+  ) {
     int monthlySavingAmount = monthlySaving;
     if (dropdownValue == StringManager.dropdownValues[1]) {
       // 「毎月積立金額」を求める場合、値は算出されたものを使う

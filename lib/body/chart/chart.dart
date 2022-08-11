@@ -34,7 +34,8 @@ class Chart {
                     setTouchedRodStackItemIndex(-1);
                     return;
                   }
-                  setTouchedRodStackItemIndex(barTouchResponse.spot!.touchedBarGroupIndex);
+                  setTouchedRodStackItemIndex(
+                      barTouchResponse.spot!.touchedBarGroupIndex);
                 },
               ),
               titlesData: FlTitlesData(

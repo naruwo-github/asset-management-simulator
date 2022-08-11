@@ -3,7 +3,24 @@ import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:flutter/material.dart';
 
 class Setting {
-  static List<int> items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 50, 100];
+  static List<int> items = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    15,
+    20,
+    25,
+    30,
+    50,
+    100
+  ];
 
   static Row getWidget(
     String dropdownValue,
@@ -60,14 +77,14 @@ class Setting {
               ),
               // TODO: *** アップデート ***
               // if (_dropdownValue != StringManager.dropdownValues.last)
-                // 「積立期間」を選択してる場合のみ、非表示、そうでない場合に「積立期間」蘭を表示
-                SettingElementUnit.getWidget(
-                  StringManager.savingPeriod,
-                  savingPeriod,
-                  setSavingPeriod,
-                  items,
-                  StringManager.year,
-                ),
+              // 「積立期間」を選択してる場合のみ、非表示、そうでない場合に「積立期間」蘭を表示
+              SettingElementUnit.getWidget(
+                StringManager.savingPeriod,
+                savingPeriod,
+                setSavingPeriod,
+                items,
+                StringManager.year,
+              ),
               if (dropdownValue != StringManager.dropdownValues.first)
                 // 「最終積立金額」を選択してる場合のみ、非表示、そうでない場合に「目標金額」蘭を表示
                 SettingElementUnit.getWidget(

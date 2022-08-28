@@ -45,13 +45,13 @@ class StringManager {
   }
 
   // 結果のテキストを整形する関数
-  static String formatCalculatedResult(int result, String _dropdownValue) {
+  static String formatCalculatedResult(int result, String dropdownValue) {
     String formattedResult = separateByThreeDigits(result.toString());
-    if (_dropdownValue == dropdownValues.first) {
+    if (dropdownValue == dropdownValues.first) {
       // 例: 合計: 523,511 円
       return '${resultTextPrefix.first}: $formattedResult $currency';
     }
-    if (_dropdownValue == dropdownValues[1]) {
+    if (dropdownValue == dropdownValues[1]) {
       // 例: 毎月: 523,511 円
       return '${resultTextPrefix[1]}: $formattedResult $currency'; // TODO: 一つ上の条件式と被ってる
     }

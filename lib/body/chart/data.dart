@@ -6,11 +6,11 @@ class ChartData {
   static const Color increased = Colors.pinkAccent;
 
   static List<BarChartGroupData> getData(
-      int period,
-      double rate,
-      List<double> yearSavings,
-      BuildContext _context,
-      int _touchedRodStackItemIndex,
+    int period,
+    double rate,
+    List<double> yearSavings,
+    BuildContext context,
+    int touchedRodStackItemIndex,
   ) {
     List<BarChartGroupData> dataList = [];
     for (int i = 0; i < period; i++) {
@@ -20,26 +20,24 @@ class ChartData {
           barsSpace: 5,
           barRods: [
             BarChartRodData(
-              width: MediaQuery.of(_context).size.width / period / 2,
+              width: MediaQuery.of(context).size.width / period / 2,
               y: yearSavings[i] * (1 + rate),
               rodStackItems: [
                 BarChartRodStackItem(
-                    0,
-                    yearSavings[i],
-                    saved,
+                  0,
+                  yearSavings[i],
+                  saved,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 2 : 0
-                  ),
+                      width: touchedRodStackItemIndex == i ? 2 : 0),
                 ),
                 BarChartRodStackItem(
-                    yearSavings[i],
-                    yearSavings[i] * (1 + rate),
-                    increased,
+                  yearSavings[i],
+                  yearSavings[i] * (1 + rate),
+                  increased,
                   BorderSide(
                       color: Colors.orange,
-                      width: _touchedRodStackItemIndex == i ? 2 : 0
-                  ),
+                      width: touchedRodStackItemIndex == i ? 2 : 0),
                 ),
               ],
               borderRadius: const BorderRadius.all(Radius.circular(3)),

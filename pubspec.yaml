@@ -43,6 +43,7 @@ dependencies:
 
   # Icon Generator
   flutter_launcher_icons: ^0.10.0
+  flutter_web_frame: ^0.0.3
 
 # Set App Icons
 flutter_icons:

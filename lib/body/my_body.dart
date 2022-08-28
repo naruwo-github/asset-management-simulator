@@ -3,6 +3,7 @@ import 'package:asset_management_simulator/body/resultText/result_text.dart';
 import 'package:asset_management_simulator/body/setting/setting.dart';
 import 'package:asset_management_simulator/services/admob.dart';
 import 'package:asset_management_simulator/services/string_manager.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -20,7 +21,7 @@ class MyBody {
     void Function(int) setTargetAmount,
     int calculatedSavingAmountPerMonth,
     String calculatedResult,
-    BannerAd topBannerAd,
+    BannerAd? topBannerAd,
     BuildContext context,
     int touchedRodStackItemIndex,
     void Function(int) setTouchedRodStackItemIndex,
@@ -38,68 +39,70 @@ class MyBody {
       yearSavings.add(yearSavings[i - 1] * (1 + rate) + yearSaving);
     }
 
-    return SafeArea(
-      child: Column(
-        children: [
-          AdMobService.getBannerAdContainer(topBannerAd),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Chart.getWidget(
-                    savingPeriod,
-                    rate,
-                    yearSavings,
-                    context,
-                    touchedRodStackItemIndex,
-                    setTouchedRodStackItemIndex,
-                  ),
-                  Setting.getWidget(
-                    dropdownValue,
-                    setDropdownValue,
-                    monthlySaving,
-                    setMonthlySaving,
-                    annualInterestRate,
-                    setAnnualInterestRate,
-                    savingPeriod,
-                    setSavingPeriod,
-                    targetAmount,
-                    setTargetAmount,
-                  ),
-                  ResultText.getWidget(
-                    calculatedResult,
-                    context,
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              content: Text(
-                                StringManager.disclaimerContent,
-                                // バナー広告を隠さないサイズを指定
-                                style: const TextStyle(fontSize: 14),
-                              ),
-                            );
-                          });
-                    },
-                    style: OutlinedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      side: const BorderSide(
-                        color: Colors.orange,
-                        width: 2,
-                      ),
-                    ),
-                    child: Text(StringManager.disclaimerTitle),
-                  ),
-                ],
+    List<Widget> children = defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android ? [
+      AdMobService.getBannerAdContainer(topBannerAd!)
+    ] : [];
+    children.add(
+      Expanded(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Chart.getWidget(
+                savingPeriod,
+                rate,
+                yearSavings,
+                context,
+                touchedRodStackItemIndex,
+                setTouchedRodStackItemIndex,
               ),
-            ),
+              Setting.getWidget(
+                dropdownValue,
+                setDropdownValue,
+                monthlySaving,
+                setMonthlySaving,
+                annualInterestRate,
+                setAnnualInterestRate,
+                savingPeriod,
+                setSavingPeriod,
+                targetAmount,
+                setTargetAmount,
+              ),
+              ResultText.getWidget(
+                calculatedResult,
+                context,
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Text(
+                            StringManager.disclaimerContent,
+                            // バナー広告を隠さないサイズを指定
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        );
+                      });
+                },
+                style: OutlinedButton.styleFrom(
+                  shape: const StadiumBorder(),
+                  side: const BorderSide(
+                    color: Colors.orange,
+                    width: 2,
+                  ),
+                ),
+                child: Text(StringManager.disclaimerTitle),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
+    );
+
+    return SafeArea(
+    child: Column(children: children),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:asset_management_simulator/body/my_body.dart';
 import 'package:asset_management_simulator/services/string_manager.dart';
 import 'package:asset_management_simulator/services/theme_manager.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:asset_management_simulator/appBar/app_bar.dart';
 import 'package:asset_management_simulator/bottomNavigationBar/bottom_navigation_bar.dart';
@@ -9,7 +11,9 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  MobileAds.instance.initialize();
+  if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
+    MobileAds.instance.initialize();
+  }
   runApp(const MyApp());
 }
 
@@ -42,19 +46,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final BannerAd _topBannerAd =
-      AdMobService.getBannerAdByType(AdType.topBanner);
-  final BannerAd _bottomBannerAd =
-      AdMobService.getBannerAdByType(AdType.bottomBanner);
+  final BannerAd? _topBannerAd = defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android ?
+      AdMobService.getBannerAdByType(AdType.topBanner) : null;
+  final BannerAd? _bottomBannerAd = defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android ?
+  AdMobService.getBannerAdByType(AdType.bottomBanner) : null;
 
   // *** State ***
   String _dropdownValue = StringManager.dropdownValues.first;
   String _calculatedResult = ''; // 計算結果
 
   // *** 金額の単位：万 ***
-  int _monthlySaving = 3; // 毎月の積立金額
-  int _annualInterestRate = 3; // 利回り（年率）
-  int _savingPeriod = 10; // 積立期間
+  int _monthlySaving = 5; // 毎月の積立金額
+  int _annualInterestRate = 10; // 利回り（年率）
+  int _savingPeriod = 15; // 積立期間
   int _targetAmount = 2000; // 目標金額
   // *** 金額の単位：円 ***
   int _calculatedSavingAmountPerMonth = 0; // 毎月積み立てる必要のある額
@@ -140,42 +144,59 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    _topBannerAd.load();
-    _bottomBannerAd.load();
+    if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
+      _topBannerAd!.load();
+      _bottomBannerAd!.load();
+    }
     calculateResult();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _topBannerAd.dispose();
-    _bottomBannerAd.dispose();
+    if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
+      _topBannerAd!.dispose();
+      _bottomBannerAd!.dispose();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called.
-    return Scaffold(
-      appBar: MyAppBar.getWidget(widget.title),
-      body: MyBody.getWidget(
-        _dropdownValue,
-        _setDropdownValue,
-        _monthlySaving,
-        _setMonthlySaving,
-        _annualInterestRate,
-        _setAnnualInterestRate,
-        _savingPeriod,
-        _setSavingPeriod,
-        _targetAmount,
-        _setTargetAmount,
-        _calculatedSavingAmountPerMonth,
-        _calculatedResult,
-        _topBannerAd,
-        context,
-        _touchedRodStackItemIndex,
-        _setTouchedRodStackItemIndex,
-      ),
-      bottomNavigationBar: MyBottomNavigationBar.getWidget(_bottomBannerAd),
+    return FlutterWebFrame(
+      builder: (context) {
+        return MaterialApp(
+          title: StringManager.appTitle,
+          themeMode: ThemeMode.system,
+          theme: ThemeManager.lightTheme(),
+          darkTheme: ThemeManager.darkTheme(),
+          home: Scaffold(
+            appBar: MyAppBar.getWidget(widget.title),
+            body: MyBody.getWidget(
+              _dropdownValue,
+              _setDropdownValue,
+              _monthlySaving,
+              _setMonthlySaving,
+              _annualInterestRate,
+              _setAnnualInterestRate,
+              _savingPeriod,
+              _setSavingPeriod,
+              _targetAmount,
+              _setTargetAmount,
+              _calculatedSavingAmountPerMonth,
+              _calculatedResult,
+              _topBannerAd,
+              context,
+              _touchedRodStackItemIndex,
+              _setTouchedRodStackItemIndex,
+            ),
+            bottomNavigationBar: defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android ? MyBottomNavigationBar.getWidget(_bottomBannerAd!) : null,
+          ),
+        );
+      },
+      maximumSize: const Size(550, 800),
+      enabled: kIsWeb,
+      backgroundColor: Colors.black,
     );
   }
 }

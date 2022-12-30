@@ -61,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
   // *** 積立期間の単位：ヶ月 ***
   // TODO: *** アップデート ***
   int _calculatedSavingPeriod = 0; // 積立に必要な月数
-  // TODO: *** アップデート ***
   int _touchedRodStackItemIndex = -1;
 
   // *** setState ***
